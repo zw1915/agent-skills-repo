@@ -1,4 +1,4 @@
-﻿---
+---
 name: worldview-distiller
 display_name: 长篇语料观点萃取专家团
 display_name_en: Long-Form Corpus Worldview Distiller (Expert Team)

@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+# generated itineraries (the bundled demo preview.html files are tracked on purpose)
+/trip.html
+/tripData.json
+
+# gemini-cli settings
+.gemini/
+
+# GitHub App credentials
+gha-creds-*.json
+
+.venv
+.DS_Store

@@ -1,996 +1,1784 @@
 {
-  "name": "workbuddy-consulting-skills",
-  "description": "165 个专业咨询级 Agent 技能（SKILL.md 标准格式）：覆盖商业计划、市场调研、法律文书、财务审计、可研报告、技术白皮书等 31 个咨询领域的 93 个专业技能 + 72 个内容生成技能",
+  "name": "workbuddy-agent-skills",
+  "description": "254 个 Agent 技能（SKILL.md 标准）：专业技能 / 内容生成 / 公文写作 / 实用工具四大类",
   "skills": [
     {
+      "name": "ashare-deep-research",
+      "group": "实用工具",
+      "display_name": "A股个股深度投研流水线",
+      "description": "把个股研究固化为六段式流水线：基本面 → 技术面 → 新闻/事件面 → 情绪筹码面 → 多空辩论 → 风控交易计划，产出带 SVG 图表、可直接交付的 HTML 深度研报。当用户说「深度研究」「做个深度分析」「写一份个股研报」「这只票值不值得买」「能不能拿」「怎么看XX」「帮我拆一下基本面和筹码」「多空对辩一下」「给个买入区间和止损」「这只票有什么雷」时使用。也适用于批量产出付费研报栏目、把个人投研工作流产品化。触发词：深度研报、投研流水线、个股深度分析、基本面技术面情绪面、多空辩论、买入区间、止损位、仓位管理、主力资金、大宗交易折价、筹码派发。不适用：只查一个实时报价、只看大盘情绪周期、ETF轮动配置、纯短线打板选股。",
+      "path": "skills/ashare-deep-research/SKILL.md"
+    },
+    {
+      "name": "ashare-limitup-plan",
+      "group": "实用工具",
+      "display_name": "A股打板选股与回测",
+      "description": "面向 A 股首板打板的盘后量化选股与回测技能：收盘后增量更新全 A 股日线（约 5~8 分钟），重建涨停与首板事件，按封板形态、量能倍数、成交额、股价、前期涨幅、60 日位置等因子打分，再结合市场情绪闸门给出次日 Top10 交易计划（含买入区间、止损位、仓位与失效条件），并支持一键回测复盘以验证因子是否真的有效。当用户提到「打板」「首板」「涨停板选股」「连板」「情绪周期」「次日交易计划」「盘后选股」「涨停复盘」「回测打板策略」「给我今天的打板名单」等需求时使用本技能。技能自带可从零复现的数据层（同花顺为主源，新浪/东财为备源，零第三方依赖）以及 12 年全 A 股因子回测结论。不适用于日内高频、T+0、需要分时或盘口数据（封单量、封板时间）的场景；输出为量化研究结果，不构成投资建议。",
+      "path": "skills/ashare-limitup-plan/SKILL.md"
+    },
+    {
+      "name": "batch-expert-team-builder",
+      "group": "实用工具",
+      "display_name": "批量专家团生成器",
+      "description": "批量生成 WorkBuddy Team 型专家包（多角色专家团），从一份 JSON 规格一次性产出目录、plugin.json、agents/*.md、settings.json、README 与头像，并自动跑 validate/register/package。内建两条上传校验硬约束（members[].name 必填 en/zh、members[].avatar 路径必须真实存在）。",
+      "path": "skills/batch-expert-team-builder/SKILL.md"
+    },
+    {
+      "name": "browser-skill",
+      "group": "实用工具",
+      "display_name": "BrowserSkill",
+      "description": "|",
+      "path": "skills/browser-skill/SKILL.md"
+    },
+    {
+      "name": "browser-skill-network-diagnosis",
+      "group": "实用工具",
+      "display_name": "browser-skill-network-diagnosis",
+      "description": "Diagnose BrowserSkill agent-window network failures when automating dApps or websites. Use when bsk Chrome cannot load pages, returns ERR_CONNECTION_RESET, Region not Supported, or wallet-extension tunnels fail. Guides through shell reachability tests, system proxy checks, regional block verification, and decides whether to fix proxy, switch platforms, or fall back to manual execution.",
+      "path": "skills/browser-skill-network-diagnosis/SKILL.md"
+    },
+    {
+      "name": "convertible-bond",
+      "group": "实用工具",
+      "display_name": "可转债分析助手",
+      "description": "'可转债分析助手：计算转股价值与溢价率，解读下修/强赎/回售条款，给出打新与双低等策略及条款提醒。'",
+      "path": "skills/convertible-bond/SKILL.md"
+    },
+    {
+      "name": "doc-announcement",
+      "group": "公文写作",
+      "display_name": "公告写作",
+      "description": "向国内外宣布重要事项或法定事项。当用户表达「写公告」「拟公告」「重要公告」「法定公告」「公告怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于机关内部知照用「通知/通报」，不用公告。",
+      "path": "skills/doc-announcement/SKILL.md"
+    },
+    {
+      "name": "doc-circular",
+      "group": "公文写作",
+      "display_name": "通报写作",
+      "description": "起草表彰、批评、情况通报，用典型事例教育或知照全局。当用户表达「写通报」「拟通报」「表彰通报」「批评通报」「情况通报」「通报怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于布置具体工作用「通知」，不是通报。",
+      "path": "skills/doc-circular/SKILL.md"
+    },
+    {
+      "name": "doc-communique",
+      "group": "公文写作",
+      "display_name": "公报写作",
+      "description": "公布重要决定或重大事项，如会议公报、统计公报、外交公报。当用户表达「写公报」「拟公报」「会议公报」「统计公报」「新闻公报」「公报怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于日常知照用「通知」，不用公报。",
+      "path": "skills/doc-communique/SKILL.md"
+    },
+    {
+      "name": "doc-decision",
+      "group": "公文写作",
+      "display_name": "决定写作",
+      "description": "对重要事项或重大行动作出决策和部署，奖惩有关单位及人员。当用户表达「写决定」「拟决定」「表彰决定」「处分决定」「重大决策」「决定怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于一般事务性布置用「通知」，不用决定。",
+      "path": "skills/doc-decision/SKILL.md"
+    },
+    {
+      "name": "doc-letter",
+      "group": "公文写作",
+      "display_name": "函写作",
+      "description": "不相隶属机关之间商洽工作、询问答复、请求批准和答复审批事项。当用户表达「写函」「拟函」「商洽函」「询问函」「复函」「函询」「函怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于上下级之间用「请示/批复/通知」，不用函。",
+      "path": "skills/doc-letter/SKILL.md"
+    },
+    {
+      "name": "doc-minutes",
+      "group": "公文写作",
+      "display_name": "纪要写作",
+      "description": "记载会议主要情况和议定事项，作为执行与查考依据。当用户表达「写纪要」「会议纪要」「办公会纪要」「党组会议纪要」「纪要怎么写」「整理会议记录」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于会议过程的逐字记录不是纪要，纪要是提炼后的议定事项。",
+      "path": "skills/doc-minutes/SKILL.md"
+    },
+    {
+      "name": "doc-notice",
+      "group": "公文写作",
+      "display_name": "通知写作",
+      "description": "起草告知性、布置性、批转性通知（发文机关标志、标题、主送、正文、附件、落款、成文日期齐全。当用户表达「写通知」「拟通知」「发个通知」「布置工作的通知」「会议通知怎么写」「放假通知」「印发通知」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于需要向上级请示批准时使用「请示」，不用通知。",
+      "path": "skills/doc-notice/SKILL.md"
+    },
+    {
+      "name": "doc-opinion",
+      "group": "公文写作",
+      "display_name": "意见写作",
+      "description": "对重要问题的提出见解和处理办法，可上行、下行、平行。当用户表达「写意见」「拟意见」「指导意见」「实施意见」「若干意见」「意见怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于作出强制性部署用「决定/通知」，不用意见。",
+      "path": "skills/doc-opinion/SKILL.md"
+    },
+    {
+      "name": "doc-order",
+      "group": "公文写作",
+      "display_name": "命令(令)写作",
+      "description": "公布行政法规和规章、宣布施行重大强制性措施、嘉奖有关单位和人员。当用户表达「写命令」「拟令」「公布令」「行政令」「嘉奖令」「命令怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于一般机关无权发布命令，依法享有命令权的机关才用。",
+      "path": "skills/doc-order/SKILL.md"
+    },
+    {
+      "name": "doc-proposal",
+      "group": "公文写作",
+      "display_name": "议案写作",
+      "description": "各级人民政府按法律程序向同级人大或其常委会提请审议事项。当用户表达「写议案」「拟议案」「政府议案」「提请审议」「议案怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于机关内部事项不用议案，依法定程序提请审议才用。",
+      "path": "skills/doc-proposal/SKILL.md"
+    },
+    {
+      "name": "doc-publicnotice",
+      "group": "公文写作",
+      "display_name": "通告写作",
+      "description": "在一定范围内公布应当遵守或周知的事项。当用户表达「写通告」「拟通告」「周知性通告」「禁行通告」「通告怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于向国内外宣布用「公告」，内部用「通知」。",
+      "path": "skills/doc-publicnotice/SKILL.md"
+    },
+    {
+      "name": "doc-reply",
+      "group": "公文写作",
+      "display_name": "批复写作",
+      "description": "答复下级机关的请示事项，先引请示、后作结论。当用户表达「写批复」「拟批复」「答复请示」「批复怎么写」「同意请示的批复」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于对不相隶属机关用「函」，不用批复。",
+      "path": "skills/doc-reply/SKILL.md"
+    },
+    {
+      "name": "doc-report-up",
+      "group": "公文写作",
+      "display_name": "报告(上行)写作",
+      "description": "向上级机关汇报工作、反映情况、答复询问，不夹带请示事项。当用户表达「写报告」「拟报告」「工作报告」「情况报告」「答复报告」「汇报材料」「报告怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于报告中不得夹带请示事项，需批准另用「请示」。",
+      "path": "skills/doc-report-up/SKILL.md"
+    },
+    {
+      "name": "doc-request",
+      "group": "公文写作",
+      "display_name": "请示写作",
+      "description": "向上级机关请求指示或批准，一文一事、事前行文。当用户表达「写请示」「拟请示」「请示报告」「请求批准」「向上级请示」「请示怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于向上级汇报工作但不求批复用「报告」，不用请示。",
+      "path": "skills/doc-request/SKILL.md"
+    },
+    {
+      "name": "doc-resolution",
+      "group": "公文写作",
+      "display_name": "决议写作",
+      "description": "会议讨论通过的重大决策事项，须经法定会议表决。当用户表达「写决议」「拟决议」「会议决议」「党代会决议」「决议怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于未经会议表决的事项不用决议。",
+      "path": "skills/doc-resolution/SKILL.md"
+    },
+    {
+      "name": "ecom-copy-dualcheck",
+      "group": "实用工具",
+      "display_name": "电商详情页双检器",
+      "description": "电商详情页文案的合规与卖点双检器：先按《广告法》逐句扫描违禁词并给出可落地替换建议，再按品类高转化套路重构卖点表达，输出「合规版」与「优化版」两稿正文及逐条改动说明。当用户提供电商详情页/商品标题/主图文案/直播话术/种草文案草稿，并表达「查违禁词」「广告法合规」「会不会违规」「卖点不突出」「转化率低」「帮我优化详情页」「敏感词检测」「改写成合规版」等意图，或提到天猫/淘宝/京东/拼多多/抖音小店的商品文案审核、被平台驳回、被投诉极限词时，使用本技能。技能把 13 类电商监管类别作为合规参数（普通食品、保健食品、普通/特殊化妆品、医疗器械、母婴、服饰、3C、家居、宠物等），不同类别的红线与必备提示语不同。不适用于纯文学创作、非商业性文案，也不提供规避平台检测的写法（拼音、拆字、谐音、符号替代一律不做）。",
+      "path": "skills/ecom-copy-dualcheck/SKILL.md"
+    },
+    {
+      "name": "etf-rotation",
+      "group": "实用工具",
+      "display_name": "ETF轮动配置助手",
+      "description": "'ETF/资产轮动配置助手：基于动量、估值或宏观信号，在宽基、行业、债券、商品、海外资产间做轮动与再平衡方案。'",
+      "path": "skills/etf-rotation/SKILL.md"
+    },
+    {
+      "name": "fapai-bargain-radar",
+      "group": "实用工具",
+      "display_name": "法拍房捡漏雷达",
+      "description": "法拍房（司法拍卖房产）捡漏辅助与排名技能：帮用户检索、评估并排名司法拍卖房源，筛出「折价高且风险可控」的标的。v2 重写：诚实标注各数据源可抓取性（淘宝/法院网/京东需真实浏览器，公拍网可用脚本直连），内置已实测的自动抓取脚本(fetch_gpai.py)、支持批量打分+排名+Top-N（直接满足「各推荐十套」），价格单位(元/万)自动识别、评估价缺失时以市场价兜底，并在自动抓取失败时给出明确降级动作与自取步骤卡。覆盖折价率测算、风险尽调清单（占用腾退/税费/土地性质/租赁/户口/抵押/法拍贷）与出价策略。触发词：法拍房捡漏、司法拍卖怎么买、看法拍房值不值、法拍房折价率、法拍房风险、哪里看法拍房源、法拍房尽调、帮我列/推荐N套法拍房、按折价排名。不适用于普通二手房、新房、商业地产分析。",
+      "path": "skills/fapai-bargain-radar/SKILL.md"
+    },
+    {
+      "name": "financial-report-reader",
+      "group": "实用工具",
+      "display_name": "财报解读助手",
+      "description": "'上市公司财报三表解读助手：拆解利润表、资产负债表、现金流量表，提炼ROE/现金流/负债率等核心指标与潜在财务风险。'",
+      "path": "skills/financial-report-reader/SKILL.md"
+    },
+    {
+      "name": "fund-screener",
+      "group": "实用工具",
+      "display_name": "基金筛选助手",
+      "description": "'面向基金投资者的筛选与对比助手：按类型、风险与收益目标，从业绩、回撤、规模、经理、费率等维度筛选公募/ETF基金并输出Top候选。'",
+      "path": "skills/fund-screener/SKILL.md"
+    },
+    {
+      "name": "h3-prompt-writing",
+      "group": "实用工具",
+      "display_name": "MiniMax H3 提示词编写",
+      "description": "Write MiniMax H3 video generation prompts for T2VA, I2VA, FL2VA, L2VA, and Ref2VA. Use when rewriting multimodal requests into H3 prompt structures, composing integrated_multimodal_description, overall_soundscape, and non_diegetic_music, aligning keyframes, or defining reference labels for images, videos, and audio.",
+      "path": "skills/h3-prompt-writing/SKILL.md"
+    },
+    {
+      "name": "humanize-calibrator",
+      "group": "实用工具",
+      "display_name": "人味校准器",
+      "description": "人味校准器：对 AI 生成或 AI 味偏重的文本做可量化的深度改写。当用户表达「去 AI 味」「太像 AI 写的」「套话太多」「读起来不像人话」「太模板化」「内容同质化」「帮我改得自然一点」「更像我自己写的」「有个人风格」，或要求 AI 对自己刚产出的内容做自我修正、降低套路感、提升可读性与个人语感时，使用本技能。它把「人味」拆成 7 个可检测维度（结构机械、词汇空泛、细节缺失、立场模糊、节奏单一、逻辑套壳、信息增量低），先体检打分、再定向改写、后复检对比，输出「修改前后对比」报告并沉淀可迭代的个人校准档案——它更像写作教练，而不是一次性改写工具。不适用于纯翻译、纯错别字或语法纠错、格式转换，以及用户明确要求保留 AI 风格或仅需公文/学术润色的场景。",
+      "path": "skills/humanize-calibrator/SKILL.md"
+    },
+    {
+      "name": "lenovo-skill-publish",
+      "group": "实用工具",
+      "display_name": "联想开放平台技能上传",
+      "description": "把本地 WorkBuddy 技能（C:\\\\Users\\\\<user>\\\\.workbuddy\\\\skills\\\\*）批量打包并上传提交审核到联想开放平台 open.lenovomm.com/developer/skillcreate。用官方 CLI @lenovo-open/skill-cli（lenovoskill）走 login/package/push，绕过浏览器文件上传权限问题。当用户说「把技能上传到联想开放平台」「上传 skill 到 lenovomm」「联想天禧 Skill Gallery 上架」「lenovoskill push」时使用。不适用于 WorkBuddy 自家开放平台 open.workbuddy.cn（用 wb-open-platform-skill-publish），也不负责写技能内容本身。",
+      "path": "skills/lenovo-skill-publish/SKILL.md"
+    },
+    {
+      "name": "macro-brief",
+      "group": "实用工具",
+      "display_name": "宏观速览助手",
+      "description": "'宏观经济速览助手：解读GDP/CPI/PPI/利率/汇率/货币信用等数据，研判政策并映射对股债商品的影响。'",
+      "path": "skills/macro-brief/SKILL.md"
+    },
+    {
+      "name": "mat-acceptance",
+      "group": "材料报告",
+      "display_name": "验收报告写作",
+      "description": "项目/工程完工后对照合同与标准出具验收结论。当用户表达「写验收报告」「项目验收」「工程验收」「竣工验收」「验收怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于过程中的阶段检查用监理报告，不用验收报告。",
+      "path": "skills/mat-acceptance/SKILL.md"
+    },
+    {
+      "name": "mat-accountability",
+      "group": "材料报告",
+      "display_name": "述职报告写作",
+      "description": "领导干部/岗位责任人向考核主体陈述履职情况、德能勤绩廉。当用户表达「写述职报告」「拟述职」「领导干部述职」「述职述廉」「个人述职」「述职怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于部门整体工作汇报用「工作总结」，不用述职。",
+      "path": "skills/mat-accountability/SKILL.md"
+    },
+    {
+      "name": "mat-annual-report",
+      "group": "材料报告",
+      "display_name": "年度工作报告写作",
+      "description": "机关/企事业单位年度全面工作回顾与新年部署。当用户表达「写年度工作报告」「政府工作报告」「年度工作会报告」「年会报告」「年度报告怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于部门小结不是全局年度报告。",
+      "path": "skills/mat-annual-report/SKILL.md"
+    },
+    {
+      "name": "mat-audit",
+      "group": "材料报告",
+      "display_name": "审计报告写作",
+      "description": "对被审计单位财政财务收支真实合法效益发表审计意见。当用户表达「写审计报告」「审计结果报告」「财务审计」「专项审计」「审计怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于内控评价不同于审计，结论口径不同。",
+      "path": "skills/mat-audit/SKILL.md"
+    },
+    {
+      "name": "mat-bid-response",
+      "group": "材料报告",
+      "display_name": "投标书写作",
+      "description": "投标人响应招标、展示方案与报价以争取中标。当用户表达「写投标书」「投标文件」「应标」「竞标方案」「标书怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于招标人发出的文件是招标文件，方向相反。",
+      "path": "skills/mat-bid-response/SKILL.md"
+    },
+    {
+      "name": "mat-bidding-doc",
+      "group": "材料报告",
+      "display_name": "招标文件写作",
+      "description": "招标人编制采购/工程招标要件，明确需求、规则与评标办法。当用户表达「写招标文件」「招标书」「采购文件」「招标公告」「招标怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于投标人响应的文件是投标书，方向相反。",
+      "path": "skills/mat-bidding-doc/SKILL.md"
+    },
+    {
+      "name": "mat-business-plan",
+      "group": "材料报告",
+      "display_name": "商业计划书写作",
+      "description": "向投资人/合作方展示商业模式、市场、团队与财务预测的融资文件。当用户表达「写商业计划书」「BP」「创业计划书」「融资计划」「商业计划」「BP怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于内部立项可研不等于对外的商业计划书。",
+      "path": "skills/mat-business-plan/SKILL.md"
+    },
+    {
+      "name": "mat-competitor",
+      "group": "材料报告",
+      "display_name": "竞品分析报告写作",
+      "description": "系统对比竞品功能、定价、份额、优劣势，明确自身定位。当用户表达「写竞品分析」「竞品对比」「对手分析」「产品对标」「竞品怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于全行业格局用市场调研，竞品是针对具体对手。",
+      "path": "skills/mat-competitor/SKILL.md"
+    },
+    {
+      "name": "mat-construction-plan",
+      "group": "材料报告",
+      "display_name": "施工方案写作",
+      "description": "对工程施工组织、工艺、进度、安全作出部署。当用户表达「写施工方案」「施工组织设计」「专项方案」「工程技术标」「施工怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于设计图纸不是方案，方案是『怎么干』。",
+      "path": "skills/mat-construction-plan/SKILL.md"
+    },
+    {
+      "name": "mat-contract",
+      "group": "材料报告",
+      "display_name": "合同写作",
+      "description": "拟定平等主体间设立、变更、终止民事权利义务的协议。当用户表达「写合同」「拟协议」「商务合同」「框架协议」「合同条款」「合同怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于内部审批单不是合同。",
+      "path": "skills/mat-contract/SKILL.md"
+    },
+    {
+      "name": "mat-democratic-life",
+      "group": "材料报告",
+      "display_name": "民主生活会材料写作",
+      "description": "撰写班子/个人对照检查、相互批评与整改清单。当用户表达「写民主生活会」「对照检查材料」「相互批评」「组织生活会」「生活会怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于一般工作总结不是生活会专用材料。",
+      "path": "skills/mat-democratic-life/SKILL.md"
+    },
+    {
+      "name": "mat-design-proposal",
+      "group": "材料报告",
+      "display_name": "设计方案写作",
+      "description": "就产品/空间/系统提出创意、技术与落地路径的设计提案。当用户表达「写设计方案」「设计提案」「策划方案」「概念方案」「设计怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于施工执行计划不是设计提案。",
+      "path": "skills/mat-design-proposal/SKILL.md"
+    },
+    {
+      "name": "mat-due-diligence",
+      "group": "材料报告",
+      "display_name": "尽调报告写作",
+      "description": "并购/投资前核验业务、财务、法律、风控，揭示风险与价值。当用户表达「写尽调」「尽职调查」「DD报告」「并购尽调」「投前尽调」「尽调怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于可研是立项论证，尽调是交易前核验。",
+      "path": "skills/mat-due-diligence/SKILL.md"
+    },
+    {
+      "name": "mat-duty-integrity",
+      "group": "材料报告",
+      "display_name": "述职述廉报告写作",
+      "description": "领导干部同时陈述履职与廉洁从业情况。当用户表达「写述职述廉」「述责述廉」「廉政述职」「领导干部述廉」「述廉怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于普通工作总结不含廉政部分。",
+      "path": "skills/mat-duty-integrity/SKILL.md"
+    },
+    {
+      "name": "mat-emergency",
+      "group": "材料报告",
+      "display_name": "应急预案写作",
+      "description": "针对突发事件明确组织、预警、响应、处置与恢复流程。当用户表达「写应急预案」「突发预案」「安全预案」「应急响应」「预案怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于日常运维手册不是应急预案。",
+      "path": "skills/mat-emergency/SKILL.md"
+    },
+    {
+      "name": "mat-feasibility",
+      "group": "材料报告",
+      "display_name": "可行性研究报告写作",
+      "description": "论证项目技术、经济、法律、社会可行性，供决策立项。当用户表达「写可研」「可行性研究报告」「项目可研」「立项可研」「可研怎么写」「项目论证」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于立项后的实施方案不是可研，可研在决策前。",
+      "path": "skills/mat-feasibility/SKILL.md"
+    },
+    {
+      "name": "mat-financial-analysis",
+      "group": "材料报告",
+      "display_name": "财务分析报告写作",
+      "description": "基于三表与比率解读企业/单位财务状况、经营成果与现金流。当用户表达「写财务分析」「财务分析报告」「报表分析」「经营分析」「财报解读」「财务怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于仅列数据不分析的台账不是分析报告。",
+      "path": "skills/mat-financial-analysis/SKILL.md"
+    },
+    {
+      "name": "mat-industry-report",
+      "group": "材料报告",
+      "display_name": "行业研究报告写作",
+      "description": "研判行业生命周期、格局、政策与趋势，供战略与投资参考。当用户表达「写行业研究」「行业分析报告」「产业研究」「赛道研究」「行业怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于单公司分析用投资/财务分析，不是全行业。",
+      "path": "skills/mat-industry-report/SKILL.md"
+    },
+    {
+      "name": "mat-initiation",
+      "group": "材料报告",
+      "display_name": "立项报告写作",
+      "description": "正式申请项目立项，明确目标、范围、资源与预期产出。当用户表达「写立项报告」「项目立项」「立项申请」「启动报告」「立项怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于立项后的执行用项目计划书，不重复立项。",
+      "path": "skills/mat-initiation/SKILL.md"
+    },
+    {
+      "name": "mat-inspection-fix",
+      "group": "材料报告",
+      "display_name": "巡察整改报告写作",
+      "description": "针对巡视巡察反馈问题逐项报告整改措施与成效。当用户表达「写巡察整改」「巡视整改」「整改报告」「反馈问题整改」「整改怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于情况说明不是整改报告，须对应反馈逐条。",
+      "path": "skills/mat-inspection-fix/SKILL.md"
+    },
+    {
+      "name": "mat-investment-analysis",
+      "group": "材料报告",
+      "display_name": "投资分析报告写作",
+      "description": "评估标的投资价值与风险，给出评级与操作建议。当用户表达「写投资分析」「个股分析」「研报」「估值分析」「投研报告」「投资怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于纯行情播报不是分析，须有结论与逻辑。",
+      "path": "skills/mat-investment-analysis/SKILL.md"
+    },
+    {
+      "name": "mat-investment-promotion",
+      "group": "材料报告",
+      "display_name": "招商引资方案写作",
+      "description": "为园区/地区设计引资目标、政策、载体与推介路径。当用户表达「写招商引资」「招商方案」「引资计划」「产业招商」「招商怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于泛泛宣传册不是招商方案。",
+      "path": "skills/mat-investment-promotion/SKILL.md"
+    },
+    {
+      "name": "mat-legal-opinion",
+      "group": "材料报告",
+      "display_name": "法律意见书写作",
+      "description": "就特定法律事项出具依据与结论的专业意见。当用户表达「写法律意见书」「律师函」「法律意见」「合规意见」「意见书怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于合同文本本身不是意见书。",
+      "path": "skills/mat-legal-opinion/SKILL.md"
+    },
+    {
+      "name": "mat-market-research",
+      "group": "材料报告",
+      "display_name": "市场调研报告写作",
+      "description": "刻画市场规模、用户、渠道、竞品，支撑营销与投资决策。当用户表达「写市场调研」「市场分析报告」「行业调研」「消费者调研」「市场怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于单一竞品对比用竞品分析，不是全市场。",
+      "path": "skills/mat-market-research/SKILL.md"
+    },
+    {
+      "name": "mat-marketing-plan",
+      "group": "材料报告",
+      "display_name": "营销策划方案写作",
+      "description": "制定品牌/活动的营销目标、人群、渠道、创意与预算。当用户表达「写营销策划」「营销方案」「品牌策划」「活动方案」「campaign」「营销怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于单纯设计稿不是策划方案。",
+      "path": "skills/mat-marketing-plan/SKILL.md"
+    },
+    {
+      "name": "mat-operation-plan",
+      "group": "材料报告",
+      "display_name": "运营方案写作",
+      "description": "规划产品/业务日常运营的目标、策略、流程与指标。当用户表达「写运营方案」「运营规划」「用户运营」「活动运营」「运营怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于一次性项目计划不是持续运营。",
+      "path": "skills/mat-operation-plan/SKILL.md"
+    },
+    {
+      "name": "mat-party-building",
+      "group": "材料报告",
+      "display_name": "党建材料写作",
+      "description": "撰写三会一课、主题党日、述职评议等党内材料。当用户表达「写党建材料」「党建总结」「三会一课」「主题党日」「党课稿」「党建怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于行政业务总结代替不了党建专项材料。",
+      "path": "skills/mat-party-building/SKILL.md"
+    },
+    {
+      "name": "mat-policy-interpret",
+      "group": "材料报告",
+      "display_name": "政策解读写作",
+      "description": "对政策出台背景、要点、影响作权威通俗解读。当用户表达「写政策解读」「政策宣讲」「文件解读」「政策说明」「解读怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于政策原文转载不是解读。",
+      "path": "skills/mat-policy-interpret/SKILL.md"
+    },
+    {
+      "name": "mat-press-release",
+      "group": "材料报告",
+      "display_name": "新闻稿写作",
+      "description": "向媒体发布企业/机构新闻，倒金字塔、要素齐全、可刊发。当用户表达「写新闻稿」「发稿」「媒体通稿」「公关稿」「新闻怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于内部通讯不是对媒新闻稿。",
+      "path": "skills/mat-press-release/SKILL.md"
+    },
+    {
+      "name": "mat-project-plan",
+      "group": "材料报告",
+      "display_name": "项目计划书写作",
+      "description": "立项后编排任务、排期、资源、里程碑与交付物。当用户表达「写项目计划」「实施计划」「推进方案」「项目排期」「计划书怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于立项目标书不是执行计划。",
+      "path": "skills/mat-project-plan/SKILL.md"
+    },
+    {
+      "name": "mat-project-proposal",
+      "group": "材料报告",
+      "display_name": "项目建议书写作",
+      "description": "在可研前提出项目设想，说明必要性、大致内容与初步效益。当用户表达「写项目建议书」「项目建议」「立项建议」「项目设想」「建议书怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于已决定实施的项目写实施方案，不写建议书。",
+      "path": "skills/mat-project-proposal/SKILL.md"
+    },
+    {
+      "name": "mat-promo-copy",
+      "group": "材料报告",
+      "display_name": "宣传文案写作",
+      "description": "为产品/活动/品牌撰写卖点突出、合规、可转化的文案。当用户表达「写宣传文案」「广告文案」「卖点文案」「种草文案」「海报文案」「文案怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于新闻通稿要保持客观，不混广告腔。",
+      "path": "skills/mat-promo-copy/SKILL.md"
+    },
+    {
+      "name": "mat-rectification-plan",
+      "group": "材料报告",
+      "display_name": "整改方案写作",
+      "description": "针对审计/巡查/检查发现的问题制定系统化整改方案。当用户表达「写整改方案」「问题整改」「专项整改」「整治方案」「整改怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于报告问题不是方案，方案要可操作。",
+      "path": "skills/mat-rectification-plan/SKILL.md"
+    },
+    {
+      "name": "mat-requirements",
+      "group": "材料报告",
+      "display_name": "需求规格说明书写作",
+      "description": "软件/系统项目中定义用户需求、功能与非功能需求。当用户表达「写需求规格」「SRS」「需求文档」「产品需求」「PRD」「需求怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于技术方案是实现，需求是『要什么』。",
+      "path": "skills/mat-requirements/SKILL.md"
+    },
+    {
+      "name": "mat-research-report",
+      "group": "材料报告",
+      "display_name": "调研报告写作",
+      "description": "基于实地调查形成情况、问题、成因与对策的研究性报告。当用户表达「写调研报告」「拟调研」「调查研究报告」「走访报告」「专题调研」「调研怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于纯文献综述不算调研，须有实证。",
+      "path": "skills/mat-research-report/SKILL.md"
+    },
+    {
+      "name": "mat-risk-assessment",
+      "group": "材料报告",
+      "display_name": "风险评估报告写作",
+      "description": "识别、分析、评价风险并给出等级与应对措施。当用户表达「写风险评估」「风险分析报告」「风险评价」「隐患排查」「风险怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于仅罗列风险不评价等级不算评估。",
+      "path": "skills/mat-risk-assessment/SKILL.md"
+    },
+    {
+      "name": "mat-speech",
+      "group": "材料报告",
+      "display_name": "演讲稿写作",
+      "description": "为会议、典礼、发布场合撰写口语化、有感染力的讲话稿。当用户表达「写演讲稿」「讲话稿」「发言稿」「致辞」「开幕词」「演讲怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于书面报告不是演讲稿，稿要能念出口。",
+      "path": "skills/mat-speech/SKILL.md"
+    },
+    {
+      "name": "mat-strategy-report",
+      "group": "材料报告",
+      "display_name": "战略规划报告写作",
+      "description": "研判环境与定位，制定中长期目标、路径与举措。当用户表达「写战略规划」「发展战略」「五年规划」「公司战略」「战略怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于年度计划是执行层，战略是方向层。",
+      "path": "skills/mat-strategy-report/SKILL.md"
+    },
+    {
+      "name": "mat-tech-spec",
+      "group": "材料报告",
+      "display_name": "技术规范书写作",
+      "description": "规定系统/产品/工程的技术要求、指标与验收准则。当用户表达「写技术规范」「技术规格书」「需求规格」「技术要求书」「规范书怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于管理类方案不是技术规范。",
+      "path": "skills/mat-tech-spec/SKILL.md"
+    },
+    {
+      "name": "mat-test-report",
+      "group": "材料报告",
+      "display_name": "测试报告写作",
+      "description": "记录测试过程、用例执行、缺陷与结论，证明质量。当用户表达「写测试报告」「测试总结」「QA报告」「缺陷报告」「测试怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于测试用例清单不是报告，报告是结论。",
+      "path": "skills/mat-test-report/SKILL.md"
+    },
+    {
+      "name": "mat-topic-report",
+      "group": "材料报告",
+      "display_name": "课题研究报告写作",
+      "description": "就立项课题系统研究，形成结论与创新点。当用户表达「写课题报告」「研究报告」「结题报告」「科研报告」「课题怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于随笔感想不是研究报告。",
+      "path": "skills/mat-topic-report/SKILL.md"
+    },
+    {
+      "name": "mat-training",
+      "group": "材料报告",
+      "display_name": "培训材料写作",
+      "description": "设计课程目标、大纲、讲义与练习，支撑知识转移。当用户表达「写培训材料」「培训课件」「课程大纲」「内训稿」「培训怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于产品说明书不是培训材料。",
+      "path": "skills/mat-training/SKILL.md"
+    },
+    {
+      "name": "mat-user-manual",
+      "group": "材料报告",
+      "display_name": "用户手册写作",
+      "description": "面向最终用户说明产品安装、功能、操作与排障。当用户表达「写用户手册」「使用说明」「操作手册」「产品说明书」「手册怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于开发设计文档不是用户手册。",
+      "path": "skills/mat-user-manual/SKILL.md"
+    },
+    {
+      "name": "mat-white-paper",
+      "group": "材料报告",
+      "display_name": "产品白皮书写作",
+      "description": "面向专业读者的产品/技术深度文档，建立权威与信任。当用户表达「写白皮书」「产品白皮书」「技术白皮书」「行业白皮书」「白皮书怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于轻量宣传册不是白皮书。",
+      "path": "skills/mat-white-paper/SKILL.md"
+    },
+    {
+      "name": "mat-work-summary",
+      "group": "材料报告",
+      "display_name": "工作总结写作",
+      "description": "对一定时期工作全面回顾，提炼成效、经验、不足与下一步。当用户表达「写工作总结」「年度总结」「半年总结」「季度总结」「个人总结」「部门总结」「总结怎么写」等意图，或需要起草/代写/润色相关材料时，使用本技能。不适用于需向上级请求批准用「请示/报告」，不用总结。",
+      "path": "skills/mat-work-summary/SKILL.md"
+    },
+    {
+      "name": "portfolio-diagnosis",
+      "group": "实用工具",
+      "display_name": "持仓诊断助手",
+      "description": "'持仓诊断助手：分析持仓的集中度、行业与风格暴露、相关性与再平衡需求，诊断风险点并给出优化建议。'",
+      "path": "skills/portfolio-diagnosis/SKILL.md"
+    },
+    {
       "name": "pro-acceptance-construction",
+      "group": "专业技能",
       "display_name": "工程竣工验收报告",
       "description": "以头部产业研究与战略咨询公司水准起草工程竣工验收报告。当用户说「写工程竣工验收报告」「工程竣工验收报告怎么写」「帮我出一份工程竣工验收报告」「代写/润色工程竣工验收报告」，或需要专业、可交付的工程竣工验收报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-acceptance-construction/SKILL.md"
     },
     {
       "name": "pro-acceptance-it",
+      "group": "专业技能",
       "display_name": "信息化项目验收报告",
       "description": "以头部产业研究与战略咨询公司水准起草信息化项目验收报告。当用户说「写信息化项目验收报告」「信息化项目验收报告怎么写」「帮我出一份信息化项目验收报告」「代写/润色信息化项目验收报告」，或需要专业、可交付的信息化项目验收报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-acceptance-it/SKILL.md"
     },
     {
       "name": "pro-acceptance-procurement",
+      "group": "专业技能",
       "display_name": "采购/服务验收报告",
       "description": "以头部产业研究与战略咨询公司水准起草采购/服务验收报告。当用户说「写采购/服务验收报告」「采购/服务验收报告怎么写」「帮我出一份采购/服务验收报告」「代写/润色采购/服务验收报告」，或需要专业、可交付的采购/服务验收报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-acceptance-procurement/SKILL.md"
     },
     {
       "name": "pro-audit-compliance",
+      "group": "专业技能",
       "display_name": "合规审计报告",
       "description": "以头部金融与投资咨询公司水准起草合规审计报告。当用户说「写合规审计报告」「合规审计报告怎么写」「帮我出一份合规审计报告」「代写/润色合规审计报告」，或需要专业、可交付的合规审计报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-audit-compliance/SKILL.md"
     },
     {
       "name": "pro-audit-financial",
+      "group": "专业技能",
       "display_name": "财务报表审计报告",
       "description": "以头部金融与投资咨询公司水准起草财务报表审计报告。当用户说「写财务报表审计报告」「财务报表审计报告怎么写」「帮我出一份财务报表审计报告」「代写/润色财务报表审计报告」，或需要专业、可交付的财务报表审计报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-audit-financial/SKILL.md"
     },
     {
       "name": "pro-audit-internal",
+      "group": "专业技能",
       "display_name": "内部审计报告",
       "description": "以头部金融与投资咨询公司水准起草内部审计报告。当用户说「写内部审计报告」「内部审计报告怎么写」「帮我出一份内部审计报告」「代写/润色内部审计报告」，或需要专业、可交付的内部审计报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-audit-internal/SKILL.md"
     },
     {
       "name": "pro-bid-response-consult",
+      "group": "专业技能",
       "display_name": "咨询服务投标书",
       "description": "以头部运营与交付咨询公司水准起草咨询服务投标书。当用户说「写咨询服务投标书」「咨询服务投标书怎么写」「帮我出一份咨询服务投标书」「代写/润色咨询服务投标书」，或需要专业、可交付的咨询服务投标书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-bid-response-consult/SKILL.md"
     },
     {
       "name": "pro-bid-response-price",
+      "group": "专业技能",
       "display_name": "商务/报价投标书",
       "description": "以头部运营与交付咨询公司水准起草商务/报价投标书。当用户说「写商务/报价投标书」「商务/报价投标书怎么写」「帮我出一份商务/报价投标书」「代写/润色商务/报价投标书」，或需要专业、可交付的商务/报价投标书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-bid-response-price/SKILL.md"
     },
     {
       "name": "pro-bid-response-tech",
+      "group": "专业技能",
       "display_name": "技术方案投标书",
       "description": "以头部运营与交付咨询公司水准起草技术方案投标书。当用户说「写技术方案投标书」「技术方案投标书怎么写」「帮我出一份技术方案投标书」「代写/润色技术方案投标书」，或需要专业、可交付的技术方案投标书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-bid-response-tech/SKILL.md"
     },
     {
       "name": "pro-bidding-doc-eng",
+      "group": "专业技能",
       "display_name": "工程招标文件",
       "description": "以头部运营与交付咨询公司水准起草工程招标文件。当用户说「写工程招标文件」「工程招标文件怎么写」「帮我出一份工程招标文件」「代写/润色工程招标文件」，或需要专业、可交付的工程招标文件时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-bidding-doc-eng/SKILL.md"
     },
     {
       "name": "pro-bidding-doc-gov",
+      "group": "专业技能",
       "display_name": "政府采购招标文件",
       "description": "以头部运营与交付咨询公司水准起草政府采购招标文件。当用户说「写政府采购招标文件」「政府采购招标文件怎么写」「帮我出一份政府采购招标文件」「代写/润色政府采购招标文件」，或需要专业、可交付的政府采购招标文件时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-bidding-doc-gov/SKILL.md"
     },
     {
       "name": "pro-bidding-doc-it",
+      "group": "专业技能",
       "display_name": "IT/服务招标文件",
       "description": "以头部运营与交付咨询公司水准起草IT/服务招标文件。当用户说「写IT/服务招标文件」「IT/服务招标文件怎么写」「帮我出一份IT/服务招标文件」「代写/润色IT/服务招标文件」，或需要专业、可交付的IT/服务招标文件时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-bidding-doc-it/SKILL.md"
     },
     {
       "name": "pro-business-plan-expand",
+      "group": "专业技能",
       "display_name": "业务扩张/新区域商业计划书",
       "description": "以头部产业研究与战略咨询公司水准起草业务扩张/新区域商业计划书。当用户说「写业务扩张/新区域商业计划书」「业务扩张/新区域商业计划书怎么写」「帮我出一份业务扩张/新区域商业计划书」「代写/润色业务扩张/新区域商业计划书」，或需要专业、可交付的业务扩张/新区域商业计划书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-business-plan-expand/SKILL.md"
     },
     {
       "name": "pro-business-plan-internal",
+      "group": "专业技能",
       "display_name": "内部立项商业计划书",
       "description": "以头部产业研究与战略咨询公司水准起草内部立项商业计划书。当用户说「写内部立项商业计划书」「内部立项商业计划书怎么写」「帮我出一份内部立项商业计划书」「代写/润色内部立项商业计划书」，或需要专业、可交付的内部立项商业计划书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-business-plan-internal/SKILL.md"
     },
     {
       "name": "pro-business-plan-startup",
+      "group": "专业技能",
       "display_name": "创业/融资商业计划书",
       "description": "以头部产业研究与战略咨询公司水准起草创业/融资商业计划书。当用户说「写创业/融资商业计划书」「创业/融资商业计划书怎么写」「帮我出一份创业/融资商业计划书」「代写/润色创业/融资商业计划书」，或需要专业、可交付的创业/融资商业计划书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-business-plan-startup/SKILL.md"
     },
     {
       "name": "pro-competitor-gtm",
+      "group": "专业技能",
       "display_name": "渠道与营销竞品分析",
       "description": "以头部产业研究与战略咨询公司水准起草渠道与营销竞品分析。当用户说「写渠道与营销竞品分析」「渠道与营销竞品分析怎么写」「帮我出一份渠道与营销竞品分析」「代写/润色渠道与营销竞品分析」，或需要专业、可交付的渠道与营销竞品分析时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-competitor-gtm/SKILL.md"
     },
     {
       "name": "pro-competitor-product",
+      "group": "专业技能",
       "display_name": "产品竞品分析报告",
       "description": "以头部产业研究与战略咨询公司水准起草产品竞品分析报告。当用户说「写产品竞品分析报告」「产品竞品分析报告怎么写」「帮我出一份产品竞品分析报告」「代写/润色产品竞品分析报告」，或需要专业、可交付的产品竞品分析报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-competitor-product/SKILL.md"
     },
     {
       "name": "pro-competitor-strategy",
+      "group": "专业技能",
       "display_name": "竞争战略分析报告",
       "description": "以头部产业研究与战略咨询公司水准起草竞争战略分析报告。当用户说「写竞争战略分析报告」「竞争战略分析报告怎么写」「帮我出一份竞争战略分析报告」「代写/润色竞争战略分析报告」，或需要专业、可交付的竞争战略分析报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-competitor-strategy/SKILL.md"
     },
     {
       "name": "pro-construction-safety",
+      "group": "专业技能",
       "display_name": "安全专项施工方案",
       "description": "以头部运营与交付咨询公司水准起草安全专项施工方案。当用户说「写安全专项施工方案」「安全专项施工方案怎么写」「帮我出一份安全专项施工方案」「代写/润色安全专项施工方案」，或需要专业、可交付的安全专项施工方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-construction-safety/SKILL.md"
     },
     {
       "name": "pro-construction-tech",
+      "group": "专业技能",
       "display_name": "施工技术/组织设计",
       "description": "以头部运营与交付咨询公司水准起草施工技术/组织设计。当用户说「写施工技术/组织设计」「施工技术/组织设计怎么写」「帮我出一份施工技术/组织设计」「代写/润色施工技术/组织设计」，或需要专业、可交付的施工技术/组织设计时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-construction-tech/SKILL.md"
     },
     {
       "name": "pro-construction-temp",
+      "group": "专业技能",
       "display_name": "临时/专项工程施工方案",
       "description": "以头部运营与交付咨询公司水准起草临时/专项工程施工方案。当用户说「写临时/专项工程施工方案」「临时/专项工程施工方案怎么写」「帮我出一份临时/专项工程施工方案」「代写/润色临时/专项工程施工方案」，或需要专业、可交付的临时/专项工程施工方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-construction-temp/SKILL.md"
     },
     {
       "name": "pro-contract-commerce",
+      "group": "专业技能",
       "display_name": "商务/采购合同",
       "description": "以头部法务与合规咨询公司水准起草商务/采购合同。当用户说「写商务/采购合同」「商务/采购合同怎么写」「帮我出一份商务/采购合同」「代写/润色商务/采购合同」，或需要专业、可交付的商务/采购合同时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-contract-commerce/SKILL.md"
     },
     {
       "name": "pro-contract-cooperation",
+      "group": "专业技能",
       "display_name": "合作/合资合同",
       "description": "以头部法务与合规咨询公司水准起草合作/合资合同。当用户说「写合作/合资合同」「合作/合资合同怎么写」「帮我出一份合作/合资合同」「代写/润色合作/合资合同」，或需要专业、可交付的合作/合资合同时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-contract-cooperation/SKILL.md"
     },
     {
       "name": "pro-contract-labor",
+      "group": "专业技能",
       "display_name": "劳动/用工合同",
       "description": "以头部法务与合规咨询公司水准起草劳动/用工合同。当用户说「写劳动/用工合同」「劳动/用工合同怎么写」「帮我出一份劳动/用工合同」「代写/润色劳动/用工合同」，或需要专业、可交付的劳动/用工合同时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-contract-labor/SKILL.md"
     },
     {
       "name": "pro-dd-commercial",
+      "group": "专业技能",
       "display_name": "商业尽调报告（CDD）",
       "description": "以头部产业研究与战略咨询公司水准起草商业尽调报告（CDD）。当用户说「写商业尽调报告（CDD）」「商业尽调报告（CDD）怎么写」「帮我出一份商业尽调报告（CDD）」「代写/润色商业尽调报告（CDD）」，或需要专业、可交付的商业尽调报告（CDD）时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-dd-commercial/SKILL.md"
     },
     {
       "name": "pro-dd-financial",
+      "group": "专业技能",
       "display_name": "财务尽调报告（FDD）",
       "description": "以头部产业研究与战略咨询公司水准起草财务尽调报告（FDD）。当用户说「写财务尽调报告（FDD）」「财务尽调报告（FDD）怎么写」「帮我出一份财务尽调报告（FDD）」「代写/润色财务尽调报告（FDD）」，或需要专业、可交付的财务尽调报告（FDD）时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-dd-financial/SKILL.md"
     },
     {
       "name": "pro-dd-legal",
+      "group": "专业技能",
       "display_name": "法律与合规尽调报告（LDD）",
       "description": "以头部产业研究与战略咨询公司水准起草法律与合规尽调报告（LDD）。当用户说「写法律与合规尽调报告（LDD）」「法律与合规尽调报告（LDD）怎么写」「帮我出一份法律与合规尽调报告（LDD）」「代写/润色法律与合规尽调报告（LDD）」，或需要专业、可交付的法律与合规尽调报告（LDD）时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-dd-legal/SKILL.md"
     },
     {
       "name": "pro-design-arch",
+      "group": "专业技能",
       "display_name": "建筑/工程设计方案",
       "description": "以头部运营与交付咨询公司水准起草建筑/工程设计方案。当用户说「写建筑/工程设计方案」「建筑/工程设计方案怎么写」「帮我出一份建筑/工程设计方案」「代写/润色建筑/工程设计方案」，或需要专业、可交付的建筑/工程设计方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-design-arch/SKILL.md"
     },
     {
       "name": "pro-design-product",
+      "group": "专业技能",
       "display_name": "产品/工业设计提案",
       "description": "以头部运营与交付咨询公司水准起草产品/工业设计提案。当用户说「写产品/工业设计提案」「产品/工业设计提案怎么写」「帮我出一份产品/工业设计提案」「代写/润色产品/工业设计提案」，或需要专业、可交付的产品/工业设计提案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-design-product/SKILL.md"
     },
     {
       "name": "pro-design-ux",
+      "group": "专业技能",
       "display_name": "数字化/体验设计方案",
       "description": "以头部运营与交付咨询公司水准起草数字化/体验设计方案。当用户说「写数字化/体验设计方案」「数字化/体验设计方案怎么写」「帮我出一份数字化/体验设计方案」「代写/润色数字化/体验设计方案」，或需要专业、可交付的数字化/体验设计方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-design-ux/SKILL.md"
     },
     {
       "name": "pro-emergency-corp",
+      "group": "专业技能",
       "display_name": "企业突发事件应急预案",
       "description": "以头部运营与交付咨询公司水准起草企业突发事件应急预案。当用户说「写企业突发事件应急预案」「企业突发事件应急预案怎么写」「帮我出一份企业突发事件应急预案」「代写/润色企业突发事件应急预案」，或需要专业、可交付的企业突发事件应急预案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-emergency-corp/SKILL.md"
     },
     {
       "name": "pro-emergency-public",
+      "group": "专业技能",
       "display_name": "公共事件/舆情应急预案",
       "description": "以头部运营与交付咨询公司水准起草公共事件/舆情应急预案。当用户说「写公共事件/舆情应急预案」「公共事件/舆情应急预案怎么写」「帮我出一份公共事件/舆情应急预案」「代写/润色公共事件/舆情应急预案」，或需要专业、可交付的公共事件/舆情应急预案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-emergency-public/SKILL.md"
     },
     {
       "name": "pro-emergency-safety",
+      "group": "专业技能",
       "display_name": "安全生产应急预案",
       "description": "以头部运营与交付咨询公司水准起草安全生产应急预案。当用户说「写安全生产应急预案」「安全生产应急预案怎么写」「帮我出一份安全生产应急预案」「代写/润色安全生产应急预案」，或需要专业、可交付的安全生产应急预案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-emergency-safety/SKILL.md"
     },
     {
       "name": "pro-feasibility-construction",
+      "group": "专业技能",
       "display_name": "建设工程可行性研究报告",
       "description": "以头部产业研究与战略咨询公司水准起草建设工程可行性研究报告。当用户说「写建设工程可行性研究报告」「建设工程可行性研究报告怎么写」「帮我出一份建设工程可行性研究报告」「代写/润色建设工程可行性研究报告」，或需要专业、可交付的建设工程可行性研究报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-feasibility-construction/SKILL.md"
     },
     {
       "name": "pro-feasibility-invest",
+      "group": "专业技能",
       "display_name": "投资项目可行性研究报告（财务）",
       "description": "以头部产业研究与战略咨询公司水准起草投资项目可行性研究报告（财务）。当用户说「写投资项目可行性研究报告（财务）」「投资项目可行性研究报告（财务）怎么写」「帮我出一份投资项目可行性研究报告（财务）」「代写/润色投资项目可行性研究报告（财务）」，或需要专业、可交付的投资项目可行性研究报告（财务）时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-feasibility-invest/SKILL.md"
     },
     {
       "name": "pro-feasibility-policy",
+      "group": "专业技能",
       "display_name": "政策/改革可行性论证",
       "description": "以头部产业研究与战略咨询公司水准起草政策/改革可行性论证。当用户说「写政策/改革可行性论证」「政策/改革可行性论证怎么写」「帮我出一份政策/改革可行性论证」「代写/润色政策/改革可行性论证」，或需要专业、可交付的政策/改革可行性论证时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-feasibility-policy/SKILL.md"
     },
     {
       "name": "pro-fin-analysis-corporate",
+      "group": "专业技能",
       "display_name": "企业财务分析报告",
       "description": "以头部金融与投资咨询公司水准起草企业财务分析报告。当用户说「写企业财务分析报告」「企业财务分析报告怎么写」「帮我出一份企业财务分析报告」「代写/润色企业财务分析报告」，或需要专业、可交付的企业财务分析报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-fin-analysis-corporate/SKILL.md"
     },
     {
       "name": "pro-fin-analysis-group",
+      "group": "专业技能",
       "display_name": "集团/合并财务分析",
       "description": "以头部金融与投资咨询公司水准起草集团/合并财务分析。当用户说「写集团/合并财务分析」「集团/合并财务分析怎么写」「帮我出一份集团/合并财务分析」「代写/润色集团/合并财务分析」，或需要专业、可交付的集团/合并财务分析时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-fin-analysis-group/SKILL.md"
     },
     {
       "name": "pro-fin-analysis-project",
+      "group": "专业技能",
       "display_name": "项目财务评价报告",
       "description": "以头部金融与投资咨询公司水准起草项目财务评价报告。当用户说「写项目财务评价报告」「项目财务评价报告怎么写」「帮我出一份项目财务评价报告」「代写/润色项目财务评价报告」，或需要专业、可交付的项目财务评价报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-fin-analysis-project/SKILL.md"
     },
     {
       "name": "pro-industry-report-overview",
+      "group": "专业技能",
       "display_name": "行业全景研究报告",
       "description": "以头部产业研究与战略咨询公司水准起草行业全景研究报告。当用户说「写行业全景研究报告」「行业全景研究报告怎么写」「帮我出一份行业全景研究报告」「代写/润色行业全景研究报告」，或需要专业、可交付的行业全景研究报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-industry-report-overview/SKILL.md"
     },
     {
       "name": "pro-industry-report-subsector",
+      "group": "专业技能",
       "display_name": "细分赛道深度研究报告",
       "description": "以头部产业研究与战略咨询公司水准起草细分赛道深度研究报告。当用户说「写细分赛道深度研究报告」「细分赛道深度研究报告怎么写」「帮我出一份细分赛道深度研究报告」「代写/润色细分赛道深度研究报告」，或需要专业、可交付的细分赛道深度研究报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-industry-report-subsector/SKILL.md"
     },
     {
       "name": "pro-industry-report-trend",
+      "group": "专业技能",
       "display_name": "行业趋势与变革研究报告",
       "description": "以头部产业研究与战略咨询公司水准起草行业趋势与变革研究报告。当用户说「写行业趋势与变革研究报告」「行业趋势与变革研究报告怎么写」「帮我出一份行业趋势与变革研究报告」「代写/润色行业趋势与变革研究报告」，或需要专业、可交付的行业趋势与变革研究报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-industry-report-trend/SKILL.md"
     },
     {
       "name": "pro-initiation-info",
+      "group": "专业技能",
       "display_name": "信息化/数字化立项",
       "description": "以头部产业研究与战略咨询公司水准起草信息化/数字化立项。当用户说「写信息化/数字化立项」「信息化/数字化立项怎么写」「帮我出一份信息化/数字化立项」「代写/润色信息化/数字化立项」，或需要专业、可交付的信息化/数字化立项时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-initiation-info/SKILL.md"
     },
     {
       "name": "pro-initiation-invest",
+      "group": "专业技能",
       "display_name": "投资项目立项报告",
       "description": "以头部产业研究与战略咨询公司水准起草投资项目立项报告。当用户说「写投资项目立项报告」「投资项目立项报告怎么写」「帮我出一份投资项目立项报告」「代写/润色投资项目立项报告」，或需要专业、可交付的投资项目立项报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-initiation-invest/SKILL.md"
     },
     {
       "name": "pro-initiation-rd",
+      "group": "专业技能",
       "display_name": "科研/研发立项报告",
       "description": "以头部产业研究与战略咨询公司水准起草科研/研发立项报告。当用户说「写科研/研发立项报告」「科研/研发立项报告怎么写」「帮我出一份科研/研发立项报告」「代写/润色科研/研发立项报告」，或需要专业、可交付的科研/研发立项报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-initiation-rd/SKILL.md"
     },
     {
       "name": "pro-investment-analysis-equity",
+      "group": "专业技能",
       "display_name": "股权投资分析报告",
       "description": "以头部金融与投资咨询公司水准起草股权投资分析报告。当用户说「写股权投资分析报告」「股权投资分析报告怎么写」「帮我出一份股权投资分析报告」「代写/润色股权投资分析报告」，或需要专业、可交付的股权投资分析报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-investment-analysis-equity/SKILL.md"
     },
     {
       "name": "pro-investment-analysis-fixedincome",
+      "group": "专业技能",
       "display_name": "固收/债券投资分析报告",
       "description": "以头部金融与投资咨询公司水准起草固收/债券投资分析报告。当用户说「写固收/债券投资分析报告」「固收/债券投资分析报告怎么写」「帮我出一份固收/债券投资分析报告」「代写/润色固收/债券投资分析报告」，或需要专业、可交付的固收/债券投资分析报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-investment-analysis-fixedincome/SKILL.md"
     },
     {
       "name": "pro-investment-analysis-project",
+      "group": "专业技能",
       "display_name": "项目投资财务评价报告",
       "description": "以头部金融与投资咨询公司水准起草项目投资财务评价报告。当用户说「写项目投资财务评价报告」「项目投资财务评价报告怎么写」「帮我出一份项目投资财务评价报告」「代写/润色项目投资财务评价报告」，或需要专业、可交付的项目投资财务评价报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-investment-analysis-project/SKILL.md"
     },
     {
       "name": "pro-legal-compliance",
+      "group": "专业技能",
       "display_name": "合规法律意见书",
       "description": "以头部法务与合规咨询公司水准起草合规法律意见书。当用户说「写合规法律意见书」「合规法律意见书怎么写」「帮我出一份合规法律意见书」「代写/润色合规法律意见书」，或需要专业、可交付的合规法律意见书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-legal-compliance/SKILL.md"
     },
     {
       "name": "pro-legal-ip",
+      "group": "专业技能",
       "display_name": "知识产权法律意见书",
       "description": "以头部法务与合规咨询公司水准起草知识产权法律意见书。当用户说「写知识产权法律意见书」「知识产权法律意见书怎么写」「帮我出一份知识产权法律意见书」「代写/润色知识产权法律意见书」，或需要专业、可交付的知识产权法律意见书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-legal-ip/SKILL.md"
     },
     {
       "name": "pro-legal-transaction",
+      "group": "专业技能",
       "display_name": "交易/并购法律意见书",
       "description": "以头部法务与合规咨询公司水准起草交易/并购法律意见书。当用户说「写交易/并购法律意见书」「交易/并购法律意见书怎么写」「帮我出一份交易/并购法律意见书」「代写/润色交易/并购法律意见书」，或需要专业、可交付的交易/并购法律意见书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-legal-transaction/SKILL.md"
     },
     {
       "name": "pro-market-research-b2b",
+      "group": "专业技能",
       "display_name": "产业级（B2B）市场调研报告",
       "description": "以头部产业研究与战略咨询公司水准起草产业级（B2B）市场调研报告。当用户说「写产业级（B2B）市场调研报告」「产业级（B2B）市场调研报告怎么写」「帮我出一份产业级（B2B）市场调研报告」「代写/润色产业级（B2B）市场调研报告」，或需要专业、可交付的产业级（B2B）市场调研报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-market-research-b2b/SKILL.md"
     },
     {
       "name": "pro-market-research-consumer",
+      "group": "专业技能",
       "display_name": "消费者市场调研报告（C端）",
       "description": "以头部产业研究与战略咨询公司水准起草消费者市场调研报告（C端）。当用户说「写消费者市场调研报告（C端）」「消费者市场调研报告（C端）怎么写」「帮我出一份消费者市场调研报告（C端）」「代写/润色消费者市场调研报告（C端）」，或需要专业、可交付的消费者市场调研报告（C端）时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-market-research-consumer/SKILL.md"
     },
     {
       "name": "pro-market-research-entry",
+      "group": "专业技能",
       "display_name": "区域/出海市场进入调研报告",
       "description": "以头部产业研究与战略咨询公司水准起草区域/出海市场进入调研报告。当用户说「写区域/出海市场进入调研报告」「区域/出海市场进入调研报告怎么写」「帮我出一份区域/出海市场进入调研报告」「代写/润色区域/出海市场进入调研报告」，或需要专业、可交付的区域/出海市场进入调研报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-market-research-entry/SKILL.md"
     },
     {
       "name": "pro-marketing-brand",
+      "group": "专业技能",
       "display_name": "品牌营销方案",
       "description": "以头部运营与交付咨询公司水准起草品牌营销方案。当用户说「写品牌营销方案」「品牌营销方案怎么写」「帮我出一份品牌营销方案」「代写/润色品牌营销方案」，或需要专业、可交付的品牌营销方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-marketing-brand/SKILL.md"
     },
     {
       "name": "pro-marketing-growth",
+      "group": "专业技能",
       "display_name": "增长/效果营销方案",
       "description": "以头部运营与交付咨询公司水准起草增长/效果营销方案。当用户说「写增长/效果营销方案」「增长/效果营销方案怎么写」「帮我出一份增长/效果营销方案」「代写/润色增长/效果营销方案」，或需要专业、可交付的增长/效果营销方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-marketing-growth/SKILL.md"
     },
     {
       "name": "pro-marketing-launch",
+      "group": "专业技能",
       "display_name": "新品上市营销方案",
       "description": "以头部运营与交付咨询公司水准起草新品上市营销方案。当用户说「写新品上市营销方案」「新品上市营销方案怎么写」「帮我出一份新品上市营销方案」「代写/润色新品上市营销方案」，或需要专业、可交付的新品上市营销方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-marketing-launch/SKILL.md"
     },
     {
       "name": "pro-operation-biz",
+      "group": "专业技能",
       "display_name": "业务运营方案",
       "description": "以头部运营与交付咨询公司水准起草业务运营方案。当用户说「写业务运营方案」「业务运营方案怎么写」「帮我出一份业务运营方案」「代写/润色业务运营方案」，或需要专业、可交付的业务运营方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-operation-biz/SKILL.md"
     },
     {
       "name": "pro-operation-supplychain",
+      "group": "专业技能",
       "display_name": "供应链运营方案",
       "description": "以头部运营与交付咨询公司水准起草供应链运营方案。当用户说「写供应链运营方案」「供应链运营方案怎么写」「帮我出一份供应链运营方案」「代写/润色供应链运营方案」，或需要专业、可交付的供应链运营方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-operation-supplychain/SKILL.md"
     },
     {
       "name": "pro-operation-user",
+      "group": "专业技能",
       "display_name": "用户/会员运营方案",
       "description": "以头部运营与交付咨询公司水准起草用户/会员运营方案。当用户说「写用户/会员运营方案」「用户/会员运营方案怎么写」「帮我出一份用户/会员运营方案」「代写/润色用户/会员运营方案」，或需要专业、可交付的用户/会员运营方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-operation-user/SKILL.md"
     },
     {
       "name": "pro-plan-it",
+      "group": "专业技能",
       "display_name": "IT项目计划书",
       "description": "以头部运营与交付咨询公司水准起草IT项目计划书。当用户说「写IT项目计划书」「IT项目计划书怎么写」「帮我出一份IT项目计划书」「代写/润色IT项目计划书」，或需要专业、可交付的IT项目计划书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-plan-it/SKILL.md"
     },
     {
       "name": "pro-plan-research",
+      "group": "专业技能",
       "display_name": "科研/研发项目计划",
       "description": "以头部运营与交付咨询公司水准起草科研/研发项目计划。当用户说「写科研/研发项目计划」「科研/研发项目计划怎么写」「帮我出一份科研/研发项目计划」「代写/润色科研/研发项目计划」，或需要专业、可交付的科研/研发项目计划时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-plan-research/SKILL.md"
     },
     {
       "name": "pro-plan-transform",
+      "group": "专业技能",
       "display_name": "变革/转型项目计划",
       "description": "以头部运营与交付咨询公司水准起草变革/转型项目计划。当用户说「写变革/转型项目计划」「变革/转型项目计划怎么写」「帮我出一份变革/转型项目计划」「代写/润色变革/转型项目计划」，或需要专业、可交付的变革/转型项目计划时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-plan-transform/SKILL.md"
     },
     {
       "name": "pro-policy-interpret-enterprise",
+      "group": "专业技能",
       "display_name": "企业政策应对建议",
       "description": "以头部产业研究与战略咨询公司水准起草企业政策应对建议。当用户说「写企业政策应对建议」「企业政策应对建议怎么写」「帮我出一份企业政策应对建议」「代写/润色企业政策应对建议」，或需要专业、可交付的企业政策应对建议时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-policy-interpret-enterprise/SKILL.md"
     },
     {
       "name": "pro-policy-interpret-gov",
+      "group": "专业技能",
       "display_name": "政府政策解读稿",
       "description": "以头部产业研究与战略咨询公司水准起草政府政策解读稿。当用户说「写政府政策解读稿」「政府政策解读稿怎么写」「帮我出一份政府政策解读稿」「代写/润色政府政策解读稿」，或需要专业、可交付的政府政策解读稿时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-policy-interpret-gov/SKILL.md"
     },
     {
       "name": "pro-policy-interpret-industry",
+      "group": "专业技能",
       "display_name": "行业政策解读",
       "description": "以头部产业研究与战略咨询公司水准起草行业政策解读。当用户说「写行业政策解读」「行业政策解读怎么写」「帮我出一份行业政策解读」「代写/润色行业政策解读」，或需要专业、可交付的行业政策解读时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-policy-interpret-industry/SKILL.md"
     },
     {
       "name": "pro-promotion-park",
+      "group": "专业技能",
       "display_name": "产业园/园区招商方案",
       "description": "以头部运营与交付咨询公司水准起草产业园/园区招商方案。当用户说「写产业园/园区招商方案」「产业园/园区招商方案怎么写」「帮我出一份产业园/园区招商方案」「代写/润色产业园/园区招商方案」，或需要专业、可交付的产业园/园区招商方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-promotion-park/SKILL.md"
     },
     {
       "name": "pro-promotion-project",
+      "group": "专业技能",
       "display_name": "项目招商（引资）方案",
       "description": "以头部运营与交付咨询公司水准起草项目招商（引资）方案。当用户说「写项目招商（引资）方案」「项目招商（引资）方案怎么写」「帮我出一份项目招商（引资）方案」「代写/润色项目招商（引资）方案」，或需要专业、可交付的项目招商（引资）方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-promotion-project/SKILL.md"
     },
     {
       "name": "pro-promotion-region",
+      "group": "专业技能",
       "display_name": "区域/城市招商方案",
       "description": "以头部运营与交付咨询公司水准起草区域/城市招商方案。当用户说「写区域/城市招商方案」「区域/城市招商方案怎么写」「帮我出一份区域/城市招商方案」「代写/润色区域/城市招商方案」，或需要专业、可交付的区域/城市招商方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-promotion-region/SKILL.md"
     },
     {
       "name": "pro-proposal-consulting",
+      "group": "专业技能",
       "display_name": "咨询项目建议书",
       "description": "以头部运营与交付咨询公司水准起草咨询项目建议书。当用户说「写咨询项目建议书」「咨询项目建议书怎么写」「帮我出一份咨询项目建议书」「代写/润色咨询项目建议书」，或需要专业、可交付的咨询项目建议书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-proposal-consulting/SKILL.md"
     },
     {
       "name": "pro-proposal-it",
+      "group": "专业技能",
       "display_name": "IT/系统建设建议书",
       "description": "以头部运营与交付咨询公司水准起草IT/系统建设建议书。当用户说「写IT/系统建设建议书」「IT/系统建设建议书怎么写」「帮我出一份IT/系统建设建议书」「代写/润色IT/系统建设建议书」，或需要专业、可交付的IT/系统建设建议书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-proposal-it/SKILL.md"
     },
     {
       "name": "pro-proposal-mega",
+      "group": "专业技能",
       "display_name": "工程/总包项目建议书",
       "description": "以头部运营与交付咨询公司水准起草工程/总包项目建议书。当用户说「写工程/总包项目建议书」「工程/总包项目建议书怎么写」「帮我出一份工程/总包项目建议书」「代写/润色工程/总包项目建议书」，或需要专业、可交付的工程/总包项目建议书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-proposal-mega/SKILL.md"
     },
     {
       "name": "pro-rectify-audit",
+      "group": "专业技能",
       "display_name": "审计/巡察整改方案",
       "description": "以头部运营与交付咨询公司水准起草审计/巡察整改方案。当用户说「写审计/巡察整改方案」「审计/巡察整改方案怎么写」「帮我出一份审计/巡察整改方案」「代写/润色审计/巡察整改方案」，或需要专业、可交付的审计/巡察整改方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-rectify-audit/SKILL.md"
     },
     {
       "name": "pro-rectify-quality",
+      "group": "专业技能",
       "display_name": "质量/服务整改方案",
       "description": "以头部运营与交付咨询公司水准起草质量/服务整改方案。当用户说「写质量/服务整改方案」「质量/服务整改方案怎么写」「帮我出一份质量/服务整改方案」「代写/润色质量/服务整改方案」，或需要专业、可交付的质量/服务整改方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-rectify-quality/SKILL.md"
     },
     {
       "name": "pro-rectify-safety",
+      "group": "专业技能",
       "display_name": "安全/环保整改方案",
       "description": "以头部运营与交付咨询公司水准起草安全/环保整改方案。当用户说「写安全/环保整改方案」「安全/环保整改方案怎么写」「帮我出一份安全/环保整改方案」「代写/润色安全/环保整改方案」，或需要专业、可交付的安全/环保整改方案时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-rectify-safety/SKILL.md"
     },
     {
       "name": "pro-research-market",
+      "group": "专业技能",
       "display_name": "市场专项调研报告",
       "description": "以头部产业研究与战略咨询公司水准起草市场专项调研报告。当用户说「写市场专项调研报告」「市场专项调研报告怎么写」「帮我出一份市场专项调研报告」「代写/润色市场专项调研报告」，或需要专业、可交付的市场专项调研报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-research-market/SKILL.md"
     },
     {
       "name": "pro-research-opinion",
+      "group": "专业技能",
       "display_name": "舆情/民意调研报告",
       "description": "以头部产业研究与战略咨询公司水准起草舆情/民意调研报告。当用户说「写舆情/民意调研报告」「舆情/民意调研报告怎么写」「帮我出一份舆情/民意调研报告」「代写/润色舆情/民意调研报告」，或需要专业、可交付的舆情/民意调研报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-research-opinion/SKILL.md"
     },
     {
       "name": "pro-research-social",
+      "group": "专业技能",
       "display_name": "社会调查调研报告",
       "description": "以头部产业研究与战略咨询公司水准起草社会调查调研报告。当用户说「写社会调查调研报告」「社会调查调研报告怎么写」「帮我出一份社会调查调研报告」「代写/润色社会调查调研报告」，或需要专业、可交付的社会调查调研报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-research-social/SKILL.md"
     },
     {
       "name": "pro-risk-enterprise",
+      "group": "专业技能",
       "display_name": "企业全面风险报告",
       "description": "以头部金融与投资咨询公司水准起草企业全面风险报告。当用户说「写企业全面风险报告」「企业全面风险报告怎么写」「帮我出一份企业全面风险报告」「代写/润色企业全面风险报告」，或需要专业、可交付的企业全面风险报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-risk-enterprise/SKILL.md"
     },
     {
       "name": "pro-risk-financial",
+      "group": "专业技能",
       "display_name": "金融/信用风险报告",
       "description": "以头部金融与投资咨询公司水准起草金融/信用风险报告。当用户说「写金融/信用风险报告」「金融/信用风险报告怎么写」「帮我出一份金融/信用风险报告」「代写/润色金融/信用风险报告」，或需要专业、可交付的金融/信用风险报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-risk-financial/SKILL.md"
     },
     {
       "name": "pro-risk-project",
+      "group": "专业技能",
       "display_name": "项目风险评估报告",
       "description": "以头部金融与投资咨询公司水准起草项目风险评估报告。当用户说「写项目风险评估报告」「项目风险评估报告怎么写」「帮我出一份项目风险评估报告」「代写/润色项目风险评估报告」，或需要专业、可交付的项目风险评估报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-risk-project/SKILL.md"
     },
     {
       "name": "pro-strategy-business",
+      "group": "专业技能",
       "display_name": "业务单元（BU）战略报告",
       "description": "以头部产业研究与战略咨询公司水准起草业务单元（BU）战略报告。当用户说「写业务单元（BU）战略报告」「业务单元（BU）战略报告怎么写」「帮我出一份业务单元（BU）战略报告」「代写/润色业务单元（BU）战略报告」，或需要专业、可交付的业务单元（BU）战略报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-strategy-business/SKILL.md"
     },
     {
       "name": "pro-strategy-corporate",
+      "group": "专业技能",
       "display_name": "公司层面战略规划报告",
       "description": "以头部产业研究与战略咨询公司水准起草公司层面战略规划报告。当用户说「写公司层面战略规划报告」「公司层面战略规划报告怎么写」「帮我出一份公司层面战略规划报告」「代写/润色公司层面战略规划报告」，或需要专业、可交付的公司层面战略规划报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-strategy-corporate/SKILL.md"
     },
     {
       "name": "pro-strategy-digital",
+      "group": "专业技能",
       "display_name": "数字化转型战略报告",
       "description": "以头部产业研究与战略咨询公司水准起草数字化转型战略报告。当用户说「写数字化转型战略报告」「数字化转型战略报告怎么写」「帮我出一份数字化转型战略报告」「代写/润色数字化转型战略报告」，或需要专业、可交付的数字化转型战略报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-strategy-digital/SKILL.md"
     },
     {
       "name": "pro-test-hardware",
+      "group": "专业技能",
       "display_name": "硬件/产品测试报告",
       "description": "以头部产业研究与战略咨询公司水准起草硬件/产品测试报告。当用户说「写硬件/产品测试报告」「硬件/产品测试报告怎么写」「帮我出一份硬件/产品测试报告」「代写/润色硬件/产品测试报告」，或需要专业、可交付的硬件/产品测试报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-test-hardware/SKILL.md"
     },
     {
       "name": "pro-test-security",
+      "group": "专业技能",
       "display_name": "安全/渗透测试报告",
       "description": "以头部产业研究与战略咨询公司水准起草安全/渗透测试报告。当用户说「写安全/渗透测试报告」「安全/渗透测试报告怎么写」「帮我出一份安全/渗透测试报告」「代写/润色安全/渗透测试报告」，或需要专业、可交付的安全/渗透测试报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-test-security/SKILL.md"
     },
     {
       "name": "pro-test-software",
+      "group": "专业技能",
       "display_name": "软件测试报告",
       "description": "以头部产业研究与战略咨询公司水准起草软件测试报告。当用户说「写软件测试报告」「软件测试报告怎么写」「帮我出一份软件测试报告」「代写/润色软件测试报告」，或需要专业、可交付的软件测试报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-test-software/SKILL.md"
     },
     {
       "name": "pro-topic-policy",
+      "group": "专业技能",
       "display_name": "政策研究课题报告",
       "description": "以头部产业研究与战略咨询公司水准起草政策研究课题报告。当用户说「写政策研究课题报告」「政策研究课题报告怎么写」「帮我出一份政策研究课题报告」「代写/润色政策研究课题报告」，或需要专业、可交付的政策研究课题报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-topic-policy/SKILL.md"
     },
     {
       "name": "pro-topic-social",
+      "group": "专业技能",
       "display_name": "社会/治理课题报告",
       "description": "以头部产业研究与战略咨询公司水准起草社会/治理课题报告。当用户说「写社会/治理课题报告」「社会/治理课题报告怎么写」「帮我出一份社会/治理课题报告」「代写/润色社会/治理课题报告」，或需要专业、可交付的社会/治理课题报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-topic-social/SKILL.md"
     },
     {
       "name": "pro-topic-tech",
+      "group": "专业技能",
       "display_name": "技术研究课题报告",
       "description": "以头部产业研究与战略咨询公司水准起草技术研究课题报告。当用户说「写技术研究课题报告」「技术研究课题报告怎么写」「帮我出一份技术研究课题报告」「代写/润色技术研究课题报告」，或需要专业、可交付的技术研究课题报告时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-topic-tech/SKILL.md"
     },
     {
       "name": "pro-whitepaper-industry",
+      "group": "专业技能",
       "display_name": "行业解决方案白皮书",
       "description": "以头部产业研究与战略咨询公司水准起草行业解决方案白皮书。当用户说「写行业解决方案白皮书」「行业解决方案白皮书怎么写」「帮我出一份行业解决方案白皮书」「代写/润色行业解决方案白皮书」，或需要专业、可交付的行业解决方案白皮书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-whitepaper-industry/SKILL.md"
     },
     {
       "name": "pro-whitepaper-tech",
+      "group": "专业技能",
       "display_name": "技术/产品白皮书",
       "description": "以头部产业研究与战略咨询公司水准起草技术/产品白皮书。当用户说「写技术/产品白皮书」「技术/产品白皮书怎么写」「帮我出一份技术/产品白皮书」「代写/润色技术/产品白皮书」，或需要专业、可交付的技术/产品白皮书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-whitepaper-tech/SKILL.md"
     },
     {
       "name": "pro-whitepaper-thought",
+      "group": "专业技能",
       "display_name": "思想领导力白皮书",
       "description": "以头部产业研究与战略咨询公司水准起草思想领导力白皮书。当用户说「写思想领导力白皮书」「思想领导力白皮书怎么写」「帮我出一份思想领导力白皮书」「代写/润色思想领导力白皮书」，或需要专业、可交付的思想领导力白皮书时启用。不适用于其他细分（如通用调研用市场调研、单一竞品用竞品分析）。",
       "path": "skills/pro-whitepaper-thought/SKILL.md"
     },
     {
       "name": "rb-gen-01",
+      "group": "内容生成",
       "display_name": "AI提示词包(Prompt Pack)生成器",
       "description": "专业级内容创作「AI提示词包(Prompt Pack)生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「AI提示词包(Prompt Pack)生成器」「帮我写/做AI提示词包(Prompt Pack)生成器」「AI提示词包(Prompt Pack)生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-01/SKILL.md"
     },
     {
       "name": "rb-gen-02",
+      "group": "内容生成",
       "display_name": "B站视频文案生成器",
       "description": "专业级内容创作「B站视频文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「B站视频文案生成器」「帮我写/做B站视频文案生成器」「B站视频文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-02/SKILL.md"
     },
     {
       "name": "rb-gen-03",
+      "group": "内容生成",
       "display_name": "ChatGPT通用提示词包生成器",
       "description": "专业级内容创作「ChatGPT通用提示词包生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「ChatGPT通用提示词包生成器」「帮我写/做ChatGPT通用提示词包生成器」「ChatGPT通用提示词包生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-03/SKILL.md"
     },
     {
       "name": "rb-gen-04",
+      "group": "内容生成",
       "display_name": "Etsy英文商品描述生成器",
       "description": "专业级内容创作「Etsy英文商品描述生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「Etsy英文商品描述生成器」「帮我写/做Etsy英文商品描述生成器」「Etsy英文商品描述生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-04/SKILL.md"
     },
     {
       "name": "rb-gen-05",
+      "group": "内容生成",
       "display_name": "Excel公式模板说明生成器",
       "description": "专业级效率办公「Excel公式模板说明生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「Excel公式模板说明生成器」「帮我写/做Excel公式模板说明生成器」「Excel公式模板说明生成器怎么弄」，或需要高质量效率办公成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-05/SKILL.md"
     },
     {
       "name": "rb-gen-06",
+      "group": "内容生成",
       "display_name": "Gumroad销售页生成器",
       "description": "专业级内容创作「Gumroad销售页生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「Gumroad销售页生成器」「帮我写/做Gumroad销售页生成器」「Gumroad销售页生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-06/SKILL.md"
     },
     {
       "name": "rb-gen-07",
+      "group": "内容生成",
       "display_name": "Instagram英文文案生成器",
       "description": "专业级内容创作「Instagram英文文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「Instagram英文文案生成器」「帮我写/做Instagram英文文案生成器」「Instagram英文文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-07/SKILL.md"
     },
     {
       "name": "rb-gen-08",
+      "group": "内容生成",
       "display_name": "Logo创意方案生成器",
       "description": "专业级内容创作「Logo创意方案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「Logo创意方案生成器」「帮我写/做Logo创意方案生成器」「Logo创意方案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-08/SKILL.md"
     },
     {
       "name": "rb-gen-09",
+      "group": "内容生成",
       "display_name": "Midjourney绘画提示词生成器",
       "description": "专业级内容创作「Midjourney绘画提示词生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「Midjourney绘画提示词生成器」「帮我写/做Midjourney绘画提示词生成器」「Midjourney绘画提示词生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-09/SKILL.md"
     },
     {
       "name": "rb-gen-10",
+      "group": "内容生成",
       "display_name": "Notion模板规格书生成器",
       "description": "专业级效率办公「Notion模板规格书生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「Notion模板规格书生成器」「帮我写/做Notion模板规格书生成器」「Notion模板规格书生成器怎么弄」，或需要高质量效率办公成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-10/SKILL.md"
     },
     {
       "name": "rb-gen-11",
+      "group": "内容生成",
       "display_name": "PPT大纲与逐页脚本生成器",
       "description": "专业级效率办公「PPT大纲与逐页脚本生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「PPT大纲与逐页脚本生成器」「帮我写/做PPT大纲与逐页脚本生成器」「PPT大纲与逐页脚本生成器怎么弄」，或需要高质量效率办公成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-11/SKILL.md"
     },
     {
       "name": "rb-gen-12",
+      "group": "内容生成",
       "display_name": "买家秀/好评引导生成器",
       "description": "专业级内容创作「买家秀/好评引导生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「买家秀/好评引导生成器」「帮我写/做买家秀/好评引导生成器」「买家秀/好评引导生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-12/SKILL.md"
     },
     {
       "name": "rb-gen-13",
+      "group": "内容生成",
       "display_name": "亲子沟通话术生成器",
       "description": "专业级内容创作「亲子沟通话术生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「亲子沟通话术生成器」「帮我写/做亲子沟通话术生成器」「亲子沟通话术生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-13/SKILL.md"
     },
     {
       "name": "rb-gen-14",
+      "group": "内容生成",
       "display_name": "会议纪要整理器",
       "description": "专业级内容创作「会议纪要整理器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「会议纪要整理器」「帮我写/做会议纪要整理器」「会议纪要整理器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-14/SKILL.md"
     },
     {
       "name": "rb-gen-15",
+      "group": "内容生成",
       "display_name": "健身训练计划生成器",
       "description": "专业级生活健康「健身训练计划生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「健身训练计划生成器」「帮我写/做健身训练计划生成器」「健身训练计划生成器怎么弄」，或需要高质量生活健康成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-15/SKILL.md"
     },
     {
       "name": "rb-gen-16",
+      "group": "内容生成",
       "display_name": "儿童睡前故事生成器",
       "description": "专业级身心疗愈「儿童睡前故事生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「儿童睡前故事生成器」「帮我写/做儿童睡前故事生成器」「儿童睡前故事生成器怎么弄」，或需要高质量身心疗愈成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-16/SKILL.md"
     },
     {
       "name": "rb-gen-17",
+      "group": "内容生成",
       "display_name": "公众号封面文案生成器",
       "description": "专业级内容创作「公众号封面文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「公众号封面文案生成器」「帮我写/做公众号封面文案生成器」「公众号封面文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-17/SKILL.md"
     },
     {
       "name": "rb-gen-18",
+      "group": "内容生成",
       "display_name": "公众号推文生成器",
       "description": "专业级内容创作「公众号推文生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「公众号推文生成器」「帮我写/做公众号推文生成器」「公众号推文生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-18/SKILL.md"
     },
     {
       "name": "rb-gen-19",
+      "group": "内容生成",
       "display_name": "写作/小说提示词生成器",
       "description": "专业级内容创作「写作/小说提示词生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「写作/小说提示词生成器」「帮我写/做写作/小说提示词生成器」「写作/小说提示词生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-19/SKILL.md"
     },
     {
       "name": "rb-gen-20",
+      "group": "内容生成",
       "display_name": "冥想引导词生成器",
       "description": "专业级身心疗愈「冥想引导词生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「冥想引导词生成器」「帮我写/做冥想引导词生成器」「冥想引导词生成器怎么弄」，或需要高质量身心疗愈成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-20/SKILL.md"
     },
     {
       "name": "rb-gen-21",
+      "group": "内容生成",
       "display_name": "减脂食谱方案生成器",
       "description": "专业级生活健康「减脂食谱方案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「减脂食谱方案生成器」「帮我写/做减脂食谱方案生成器」「减脂食谱方案生成器怎么弄」，或需要高质量生活健康成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-21/SKILL.md"
     },
     {
       "name": "rb-gen-22",
+      "group": "内容生成",
       "display_name": "包装/礼盒文案生成器",
       "description": "专业级内容创作「包装/礼盒文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「包装/礼盒文案生成器」「帮我写/做包装/礼盒文案生成器」「包装/礼盒文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-22/SKILL.md"
     },
     {
       "name": "rb-gen-23",
+      "group": "内容生成",
       "display_name": "可打印计划表(Printable)生成器",
       "description": "专业级效率办公「可打印计划表(Printable)生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「可打印计划表(Printable)生成器」「帮我写/做可打印计划表(Printable)生成器」「可打印计划表(Printable)生成器怎么弄」，或需要高质量效率办公成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-23/SKILL.md"
     },
     {
       "name": "rb-gen-24",
+      "group": "内容生成",
       "display_name": "名片与VI文案生成器",
       "description": "专业级内容创作「名片与VI文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「名片与VI文案生成器」「帮我写/做名片与VI文案生成器」「名片与VI文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-24/SKILL.md"
     },
     {
       "name": "rb-gen-25",
+      "group": "内容生成",
       "display_name": "周报月报生成器",
       "description": "专业级内容创作「周报月报生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「周报月报生成器」「帮我写/做周报月报生成器」「周报月报生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-25/SKILL.md"
     },
     {
       "name": "rb-gen-26",
+      "group": "内容生成",
       "display_name": "商业计划书框架生成器",
       "description": "专业级内容创作「商业计划书框架生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「商业计划书框架生成器」「帮我写/做商业计划书框架生成器」「商业计划书框架生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-26/SKILL.md"
     },
     {
       "name": "rb-gen-27",
+      "group": "内容生成",
       "display_name": "商品短视频脚本生成器",
       "description": "专业级内容创作「商品短视频脚本生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「商品短视频脚本生成器」「帮我写/做商品短视频脚本生成器」「商品短视频脚本生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-27/SKILL.md"
     },
     {
       "name": "rb-gen-28",
+      "group": "内容生成",
       "display_name": "婚礼祝词/致辞生成器",
       "description": "专业级内容创作「婚礼祝词/致辞生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「婚礼祝词/致辞生成器」「帮我写/做婚礼祝词/致辞生成器」「婚礼祝词/致辞生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-28/SKILL.md"
     },
     {
       "name": "rb-gen-29",
+      "group": "内容生成",
       "display_name": "学习计划表生成器",
       "description": "专业级效率办公「学习计划表生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「学习计划表生成器」「帮我写/做学习计划表生成器」「学习计划表生成器怎么弄」，或需要高质量效率办公成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-29/SKILL.md"
     },
     {
       "name": "rb-gen-30",
+      "group": "内容生成",
       "display_name": "宠物用品文案生成器",
       "description": "专业级内容创作「宠物用品文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「宠物用品文案生成器」「帮我写/做宠物用品文案生成器」「宠物用品文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-30/SKILL.md"
     },
     {
       "name": "rb-gen-31",
+      "group": "内容生成",
       "display_name": "小红书爆款笔记生成器",
       "description": "专业级内容创作「小红书爆款笔记生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「小红书爆款笔记生成器」「帮我写/做小红书爆款笔记生成器」「小红书爆款笔记生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-31/SKILL.md"
     },
     {
       "name": "rb-gen-32",
+      "group": "内容生成",
       "display_name": "工作报告生成器",
       "description": "专业级内容创作「工作报告生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「工作报告生成器」「帮我写/做工作报告生成器」「工作报告生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-32/SKILL.md"
     },
     {
       "name": "rb-gen-33",
+      "group": "内容生成",
       "display_name": "带货直播话术生成器",
       "description": "专业级内容创作「带货直播话术生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「带货直播话术生成器」「帮我写/做带货直播话术生成器」「带货直播话术生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-33/SKILL.md"
     },
     {
       "name": "rb-gen-34",
+      "group": "内容生成",
       "display_name": "广告TVC配音稿生成器",
       "description": "专业级内容创作「广告TVC配音稿生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「广告TVC配音稿生成器」「帮我写/做广告TVC配音稿生成器」「广告TVC配音稿生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-34/SKILL.md"
     },
     {
       "name": "rb-gen-35",
+      "group": "内容生成",
       "display_name": "店铺品牌故事生成器",
       "description": "专业级内容创作「店铺品牌故事生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「店铺品牌故事生成器」「帮我写/做店铺品牌故事生成器」「店铺品牌故事生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-35/SKILL.md"
     },
     {
       "name": "rb-gen-36",
+      "group": "内容生成",
       "display_name": "微博话题文案生成器",
       "description": "专业级内容创作「微博话题文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「微博话题文案生成器」「帮我写/做微博话题文案生成器」「微博话题文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-36/SKILL.md"
     },
     {
       "name": "rb-gen-37",
+      "group": "内容生成",
       "display_name": "心理安慰文案生成器",
       "description": "专业级身心疗愈「心理安慰文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「心理安慰文案生成器」「帮我写/做心理安慰文案生成器」「心理安慰文案生成器怎么弄」，或需要高质量身心疗愈成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-37/SKILL.md"
     },
     {
       "name": "rb-gen-38",
+      "group": "内容生成",
       "display_name": "思维导图大纲生成器",
       "description": "专业级效率办公「思维导图大纲生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「思维导图大纲生成器」「帮我写/做思维导图大纲生成器」「思维导图大纲生成器怎么弄」，或需要高质量效率办公成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-38/SKILL.md"
     },
     {
       "name": "rb-gen-39",
+      "group": "内容生成",
       "display_name": "手账素材文案生成器",
       "description": "专业级内容创作「手账素材文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「手账素材文案生成器」「帮我写/做手账素材文案生成器」「手账素材文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-39/SKILL.md"
     },
     {
       "name": "rb-gen-40",
+      "group": "内容生成",
       "display_name": "抖音短视频脚本生成器",
       "description": "专业级内容创作「抖音短视频脚本生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「抖音短视频脚本生成器」「帮我写/做抖音短视频脚本生成器」「抖音短视频脚本生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-40/SKILL.md"
     },
     {
       "name": "rb-gen-41",
+      "group": "内容生成",
       "display_name": "插画AI提示词包生成器",
       "description": "专业级内容创作「插画AI提示词包生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「插画AI提示词包生成器」「帮我写/做插画AI提示词包生成器」「插画AI提示词包生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-41/SKILL.md"
     },
     {
       "name": "rb-gen-42",
+      "group": "内容生成",
       "display_name": "播客节目脚本生成器",
       "description": "专业级内容创作「播客节目脚本生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「播客节目脚本生成器」「帮我写/做播客节目脚本生成器」「播客节目脚本生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-42/SKILL.md"
     },
     {
       "name": "rb-gen-43",
+      "group": "内容生成",
       "display_name": "教案设计生成器",
       "description": "专业级教育学习「教案设计生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「教案设计生成器」「帮我写/做教案设计生成器」「教案设计生成器怎么弄」，或需要高质量教育学习成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-43/SKILL.md"
     },
     {
       "name": "rb-gen-44",
+      "group": "内容生成",
       "display_name": "旅行攻略文案生成器",
       "description": "专业级内容创作「旅行攻略文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「旅行攻略文案生成器」「帮我写/做旅行攻略文案生成器」「旅行攻略文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-44/SKILL.md"
     },
     {
       "name": "rb-gen-45",
+      "group": "内容生成",
       "display_name": "有声书章节生成器",
       "description": "专业级内容创作「有声书章节生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「有声书章节生成器」「帮我写/做有声书章节生成器」「有声书章节生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-45/SKILL.md"
     },
     {
       "name": "rb-gen-46",
+      "group": "内容生成",
       "display_name": "朋友圈种草文案生成器",
       "description": "专业级内容创作「朋友圈种草文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「朋友圈种草文案生成器」「帮我写/做朋友圈种草文案生成器」「朋友圈种草文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-46/SKILL.md"
     },
     {
       "name": "rb-gen-47",
+      "group": "内容生成",
       "display_name": "标准合同范本生成器",
       "description": "专业级商业文书「标准合同范本生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「标准合同范本生成器」「帮我写/做标准合同范本生成器」「标准合同范本生成器怎么弄」，或需要高质量商业文书成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-47/SKILL.md"
     },
     {
       "name": "rb-gen-48",
+      "group": "内容生成",
       "display_name": "歌词/Rap创作器",
       "description": "专业级内容创作「歌词/Rap创作器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「歌词/Rap创作器」「帮我写/做歌词/Rap创作器」「歌词/Rap创作器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-48/SKILL.md"
     },
     {
       "name": "rb-gen-49",
+      "group": "内容生成",
       "display_name": "海报配色与排版方案生成器",
       "description": "专业级内容创作「海报配色与排版方案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「海报配色与排版方案生成器」「帮我写/做海报配色与排版方案生成器」「海报配色与排版方案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-49/SKILL.md"
     },
     {
       "name": "rb-gen-50",
+      "group": "内容生成",
       "display_name": "淘宝商品标题SEO生成器",
       "description": "专业级内容创作「淘宝商品标题SEO生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「淘宝商品标题SEO生成器」「帮我写/做淘宝商品标题SEO生成器」「淘宝商品标题SEO生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-50/SKILL.md"
     },
     {
       "name": "rb-gen-51",
+      "group": "内容生成",
       "display_name": "生日祝福文案生成器",
       "description": "专业级内容创作「生日祝福文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「生日祝福文案生成器」「帮我写/做生日祝福文案生成器」「生日祝福文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-51/SKILL.md"
     },
     {
       "name": "rb-gen-52",
+      "group": "内容生成",
       "display_name": "电商主图卖点文案生成器",
       "description": "专业级内容创作「电商主图卖点文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「电商主图卖点文案生成器」「帮我写/做电商主图卖点文案生成器」「电商主图卖点文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-52/SKILL.md"
     },
     {
       "name": "rb-gen-53",
+      "group": "内容生成",
       "display_name": "电商客服标准话术生成器",
       "description": "专业级内容创作「电商客服标准话术生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「电商客服标准话术生成器」「帮我写/做电商客服标准话术生成器」「电商客服标准话术生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-53/SKILL.md"
     },
     {
       "name": "rb-gen-54",
+      "group": "内容生成",
       "display_name": "知乎专业回答生成器",
       "description": "专业级内容创作「知乎专业回答生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「知乎专业回答生成器」「帮我写/做知乎专业回答生成器」「知乎专业回答生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-54/SKILL.md"
     },
     {
       "name": "rb-gen-55",
+      "group": "内容生成",
       "display_name": "短视频分镜脚本生成器",
       "description": "专业级内容创作「短视频分镜脚本生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「短视频分镜脚本生成器」「帮我写/做短视频分镜脚本生成器」「短视频分镜脚本生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-55/SKILL.md"
     },
     {
       "name": "rb-gen-56",
+      "group": "内容生成",
       "display_name": "短视频配音稿生成器",
       "description": "专业级内容创作「短视频配音稿生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「短视频配音稿生成器」「帮我写/做短视频配音稿生成器」「短视频配音稿生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-56/SKILL.md"
     },
     {
       "name": "rb-gen-57",
+      "group": "内容生成",
       "display_name": "简历优化改写器",
       "description": "专业级内容创作「简历优化改写器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「简历优化改写器」「帮我写/做简历优化改写器」「简历优化改写器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-57/SKILL.md"
     },
     {
       "name": "rb-gen-58",
+      "group": "内容生成",
       "display_name": "纪录片解说词生成器",
       "description": "专业级内容创作「纪录片解说词生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「纪录片解说词生成器」「帮我写/做纪录片解说词生成器」「纪录片解说词生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-58/SKILL.md"
     },
     {
       "name": "rb-gen-59",
+      "group": "内容生成",
       "display_name": "纪念日文案生成器",
       "description": "专业级内容创作「纪念日文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「纪念日文案生成器」「帮我写/做纪念日文案生成器」「纪念日文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-59/SKILL.md"
     },
     {
       "name": "rb-gen-60",
+      "group": "内容生成",
       "display_name": "编程/代码提示词生成器",
       "description": "专业级内容创作「编程/代码提示词生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「编程/代码提示词生成器」「帮我写/做编程/代码提示词生成器」「编程/代码提示词生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-60/SKILL.md"
     },
     {
       "name": "rb-gen-61",
+      "group": "内容生成",
       "display_name": "育儿/教育提示词生成器",
       "description": "专业级内容创作「育儿/教育提示词生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「育儿/教育提示词生成器」「帮我写/做育儿/教育提示词生成器」「育儿/教育提示词生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-61/SKILL.md"
     },
     {
       "name": "rb-gen-62",
+      "group": "内容生成",
       "display_name": "节日贺卡文案生成器",
       "description": "专业级内容创作「节日贺卡文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「节日贺卡文案生成器」「帮我写/做节日贺卡文案生成器」「节日贺卡文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-62/SKILL.md"
     },
     {
       "name": "rb-gen-63",
+      "group": "内容生成",
       "display_name": "英文邮件序列生成器",
       "description": "专业级内容创作「英文邮件序列生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「英文邮件序列生成器」「帮我写/做英文邮件序列生成器」「英文邮件序列生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-63/SKILL.md"
     },
     {
       "name": "rb-gen-64",
+      "group": "内容生成",
       "display_name": "表情包/贴纸文案生成器",
       "description": "专业级内容创作「表情包/贴纸文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「表情包/贴纸文案生成器」「帮我写/做表情包/贴纸文案生成器」「表情包/贴纸文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-64/SKILL.md"
     },
     {
       "name": "rb-gen-65",
+      "group": "内容生成",
       "display_name": "表白/情书代写器",
       "description": "专业级内容创作「表白/情书代写器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「表白/情书代写器」「帮我写/做表白/情书代写器」「表白/情书代写器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-65/SKILL.md"
     },
     {
       "name": "rb-gen-66",
+      "group": "内容生成",
       "display_name": "设计/排版提示词生成器",
       "description": "专业级内容创作「设计/排版提示词生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「设计/排版提示词生成器」「帮我写/做设计/排版提示词生成器」「设计/排版提示词生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-66/SKILL.md"
     },
     {
       "name": "rb-gen-67",
+      "group": "内容生成",
       "display_name": "详情页转化文案生成器",
       "description": "专业级内容创作「详情页转化文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「详情页转化文案生成器」「帮我写/做详情页转化文案生成器」「详情页转化文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-67/SKILL.md"
     },
     {
       "name": "rb-gen-68",
+      "group": "内容生成",
       "display_name": "读书笔记模板生成器",
       "description": "专业级效率办公「读书笔记模板生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「读书笔记模板生成器」「帮我写/做读书笔记模板生成器」「读书笔记模板生成器怎么弄」，或需要高质量效率办公成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-68/SKILL.md"
     },
     {
       "name": "rb-gen-69",
+      "group": "内容生成",
       "display_name": "课件逐字稿生成器",
       "description": "专业级内容创作「课件逐字稿生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「课件逐字稿生成器」「帮我写/做课件逐字稿生成器」「课件逐字稿生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-69/SKILL.md"
     },
     {
       "name": "rb-gen-70",
+      "group": "内容生成",
       "display_name": "起名/改名文案生成器",
       "description": "专业级内容创作「起名/改名文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「起名/改名文案生成器」「帮我写/做起名/改名文案生成器」「起名/改名文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-70/SKILL.md"
     },
     {
       "name": "rb-gen-71",
+      "group": "内容生成",
       "display_name": "运势/塔罗解读文案生成器",
       "description": "专业级内容创作「运势/塔罗解读文案生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「运势/塔罗解读文案生成器」「帮我写/做运势/塔罗解读文案生成器」「运势/塔罗解读文案生成器怎么弄」，或需要高质量内容创作成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-71/SKILL.md"
     },
     {
       "name": "rb-gen-72",
+      "group": "内容生成",
       "display_name": "错题解析与举一反三生成器",
       "description": "专业级教育学习「错题解析与举一反三生成器」。以职业创作者/资深从业者的水准产出可直接使用的成品：结构完整、开箱即用、无需二次加工。当用户提到「错题解析与举一反三生成器」「帮我写/做错题解析与举一反三生成器」「错题解析与举一反三生成器怎么弄」，或需要高质量教育学习成果时启用。不适用于与本技能职能无关的其他任务。",
       "path": "skills/rb-gen-72/SKILL.md"
+    },
+    {
+      "name": "road-feasibility-report",
+      "group": "实用工具",
+      "display_name": "道路工程可研报告编写助手",
+      "description": "'道路工程（公路/市政道路）可行性研究报告编写助手：以《政府投资项目可行性研究报告编写通用大纲（2023年版）》（发改投资规〔2023〕304号文，2023年5月1日起施行）的十章结构为刚性框架，生成符合审批要求的工程可行性研究报告（工可报告），并在道路工程专业环节注入行业内容——路线走廊带方案比选、技术标准（JTG B01）、路基路面与桥涵隧道、交叉工程、交通工程及沿线设施、交通量预测（OD/四阶段法）、投资估算（公路工程估算指标，±10%）、国民经济评价与收费公路财务评价。当用户表达「写道路/公路工程可研报告」「公路工可」「工程可行性研究报告」「按304号文/可研新大纲编报告」「按发改投资规〔2023〕304号出可研」「道路项目立项报告」「帮我按2023版可研大纲编公路可研」等意图，或提供道路/公路项目名称并要求生成可研级文件时使用。不适用于企业投资且非政府审批类的基础设施以外项目（厂房、房地产，应改用《企业投资项目可行性研究报告编写参考大纲》）、纯初步设计/施工图/技术方案书，以及铁路、水运、民航、市政给排水等非道路行业的其他交通可研（需各自行业大纲）。'",
+      "path": "skills/road-feasibility-report/SKILL.md"
+    },
+    {
+      "name": "roadtrip-navigator",
+      "group": "实用工具",
+      "display_name": "diy自驾游",
+      "description": ">",
+      "path": "skills/roadtrip-navigator/SKILL.md"
+    },
+    {
+      "name": "sentiment-cycle",
+      "group": "实用工具",
+      "display_name": "市场情绪周期助手",
+      "description": "'市场情绪周期助手：综合涨跌家数、涨停跌停、量能、北向资金、融资余额与恐贪指数判定情绪阶段并给出策略基调。'",
+      "path": "skills/sentiment-cycle/SKILL.md"
+    },
+    {
+      "name": "shan-shi-worldview",
+      "group": "实用工具",
+      "display_name": "山师文集世界观",
+      "description": "'基于《山师文集》(姑射山人 2011–2026) 蒸馏出的个人世界观与答疑风格专家技能。当用户聊命/缘/姻缘/感情/健康/审美/人际/文艺/历史/修行/财富等人生话题，希望以「戏谑解构、信命坦然、审美相对、华夏本位、祛魅务实」的视角得到回答时使用。严格边界：不涉政治时事隐喻、健康类以就医为首要、玄学仙事仅作文化叙事不采信、民族血统论不背书。不适用于严肃学术论证、事实核查、医疗诊断与政治议题。'",
+      "path": "skills/shan-shi-worldview/SKILL.md"
+    },
+    {
+      "name": "skill-package-guard",
+      "group": "实用工具",
+      "display_name": "技能包导入自检",
+      "description": "在 WorkBuddy 中打包或导入自建 Skill 前的前置校验器，专治四类「解析失败」：目录层级超过两级（根目录/二级目录/文件）、SKILL.md frontmatter 缺少导入端要求的展示与版本字段（display_name、display_name_en、description_zh、description_en、version、category 等）、__pycache__ 等运行时缓存目录被打进包导致层级超限、以及描述字段超过 1000 字符上限（英文描述按中文直译最容易超，中文 356 字符常膨胀到 1000+）。当用户要创建、编辑、打包、导出、分发自建 Skill，或遇到导入报错「目录层级超限」「缺少 Skill 版本号」「缺少 Skill 中文展示名」「Skill 英文描述：当前 N 字符，上限 1000 字符」「解析失败」时使用本技能。它是 skill-creator 的补充：skill-creator 负责怎么写出好技能，本技能负责让写出来的技能能被导入端接受。不适用于判断技能内容质量或提示词优劣。",
+      "path": "skills/skill-package-guard/SKILL.md"
+    },
+    {
+      "name": "skill-starter",
+      "group": "实用工具",
+      "display_name": "技能起步模板",
+      "description": "最小但完整的 WorkBuddy 技能包模板，两个用途：验证上传通道是否可用，以及作为编写新技能的起点。附一键生成导入就绪骨架的脚本——目录严格两级、frontmatter 一次写好 8 个必需字段（name/display_name/display_name_en/description/description_zh/description_en/category/version），生成即可上传、无需事后补字段。当用户表达「生成一个技能」「新建技能」「做一个能上传的技能」「技能模板」「技能骨架」「skill 起手」「怎么开始写技能」「我的技能导不进去」等意图时，使用本技能。也用于修复上游报错「目录层级超限」「缺少 Skill 版本号」「缺少 Skill 中文展示名/英文展示名/中文描述/英文描述」后的重建起点。不适用于技能内容创作方法论（用 skill-creator），也不适用于单纯校验已有技能包（用 skill-package-guard）。",
+      "path": "skills/skill-starter/SKILL.md"
+    },
+    {
+      "name": "stop-loss-risk",
+      "group": "实用工具",
+      "display_name": "止损风控助手",
+      "description": "'投资止损与仓位风控助手：基于风险偏好设定单笔止损与仓位模型，管控组合回撤与集中度，建立可执行纪律。'",
+      "path": "skills/stop-loss-risk/SKILL.md"
+    },
+    {
+      "name": "technical-analysis",
+      "group": "实用工具",
+      "display_name": "技术面分析助手",
+      "description": "'股票/ETF技术面分析助手：基于均线、MACD、KDJ、量能与形态识别趋势、支撑阻力与买卖观察信号。'",
+      "path": "skills/technical-analysis/SKILL.md"
+    },
+    {
+      "name": "totorosir-workbuddy-checkin",
+      "group": "实用工具",
+      "display_name": "WorkBuddy签到助手",
+      "description": "WorkBuddy签到助手（WorkBuddy「Buddy 加油站」每日签到自动化 Skill，接口直签，无需点击 GUI，跨平台支持 Windows / macOS / Linux）。当用户说\"每天自动签到 WorkBuddy / 每日签到 / 自动领 Buddy 加油站积分 / 自动领 100 积分 / 设置 WorkBuddy 每日签到 / WorkBuddy 打卡 / 自动打卡 WorkBuddy / 帮我签到一次 / 现在签个到 / 检查签到环境 / 派猫猫旅行 / 猫猫旅行 / 旅行积分 / 领旅行奖励 / Buddy 在旅行吗 / 还有多久回来 / 自动派猫猫 / 推送签到结果 / 签到通知发钉钉\"时使用。原理是读取本机已登录 WorkBuddy 的登录态 accessToken，直接调用官方签到接口完成领取，并支持派猫猫旅行全自动闭环（先领后派）；支持桌面通知与 12 类渠道的多渠道消息推送（钉钉/飞书/企业微信/微信/邮件/短信/QQ/Slack/Telegram/Bark/通用 Webhook/系统通知），推送接口设计与配置项对齐 totorosir-push-message 技能。",
+      "path": "skills/totorosir-workbuddy-checkin/SKILL.md"
+    },
+    {
+      "name": "viral-structure-decoder",
+      "group": "实用工具",
+      "display_name": "爆款结构逆向拆解器",
+      "description": "跨平台爆款内容结构逆向拆解器。当用户丢入内容链接（或文本、截图），希望分析「这条为什么火」「帮我拆解这条爆款」「它的结构是什么」「我想照着这个结构写我的选题」，或要求把某条高互动内容转成可复用写作模板时，使用本技能。技能自动识别平台类型并套用对应拆解框架：小红书拆「封面标题组合＋正文钩子＋互动引导」，公众号拆「开篇引入法＋小标题逻辑链＋金句收尾」，知乎拆「问题定义＋论证结构＋情绪落点」，另含视频号、抖音、B站、微博、播客与通用兜底框架。输出一份可填空的「可复用结构模板」，并询问是否基于该模板进行二创。不适用于纯文案润色、不提供链接或原文就会凭空的「爆款预测」、以及要求直接搬运或洗稿他人内容的请求。",
+      "path": "skills/viral-structure-decoder/SKILL.md"
+    },
+    {
+      "name": "wallet-asset-query",
+      "group": "实用工具",
+      "display_name": "区块链钱包资产全链查询",
+      "description": "输入一个公开的区块链钱包地址（EVM / BTC / Solana / Tron / TON / SUI / Cosmos 等），基于区块链公开账本的只读原理，自动识别链族并统计该地址在全部支持链上的资产，汇总美元/人民币总市值。对行情源未收录的长尾代币，按 DEX 交易对链上算价（V2 储备比 / V3 sqrtPriceX96，可经稳定币或代币化股票多跳换算），避免\"未定价\"导致漏算。覆盖原生币、代币、LP 头寸、DeFi 质押与借贷凭证、收益代币、代币化股票/RWA。全程只读、不需私钥、不签名、不发起交易。触发词：查钱包、钱包资产、地址持仓、全链余额、钱包市值、多链资产、LP 头寸、查一下这个地址、wallet assets。",
+      "path": "skills/wallet-asset-query/SKILL.md"
+    },
+    {
+      "name": "wb-open-platform-skill-publish",
+      "group": "实用工具",
+      "display_name": "开放平台技能批量上传",
+      "description": "借助 BrowserSkill(bsk) 驱动用户已登录的浏览器，把一批技能 zip 逐个上传到 WorkBuddy 开放平台(open.workbuddy.cn)并提交审核。当用户要求「把技能上传/发布到开放平台」「批量提交 skill zip」「上架技能到 WorkBuddy 市场」「publish skills to open.workbuddy.cn」时使用。不适用于本地安装技能（用 marketplace-skill-installer/本地 skills 目录复制），也不负责写技能内容本身。",
+      "path": "skills/wb-open-platform-skill-publish/SKILL.md"
+    },
+    {
+      "name": "worldview-distiller",
+      "group": "实用工具",
+      "display_name": "长篇语料观点萃取专家团",
+      "description": "将长篇个人叙事、论坛连载、随笔合集、访谈转录等庞杂语料，提炼为结构化「世界观图谱 + 分主题观点 + 可操作建议 + 合规边界」的专家团技能。当用户表达「总结这本书/这个文档的观点」「提炼文集里的世界观」「把聊天记录/帖子/随笔萃取成框架」「长篇语料太散了我看不过来帮我梳理」「做个观点地图/思想图谱」「把连载帖归纳成体系」等意图，或丢入超大 txt/md/doc 个人文集、多年博客、论坛存档、口述史转录时，使用本技能。核心机制：由 4 个专家角色协作——语料结构分析师（分段/时间线/体裁识别）、思想体系萃取师（跨主题世界观坐标）、生活智慧与案例整理师（可操作建议+反例）、合规与边界审查师（标记未可验证/政治敏感/个人内容，仅梳理框架不采信不放大）；输出严格遵循 references/output-template.md 的统一结构。不适用于纯学术论文综述（用学术检索类技能）、不适用于事实核查新闻（用事实核查类技能）、不适用于代写。",
+      "path": "skills/worldview-distiller/SKILL.md"
     }
   ]
 }

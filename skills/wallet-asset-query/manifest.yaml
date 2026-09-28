@@ -1,0 +1,57 @@
+slug: wallet-asset-query
+name: 区块链钱包资产全链查询
+version: 3.1.0
+author: svan
+category: 金融财务
+sub_category: 区块链与加密资产
+tags:
+  - 区块链
+  - 加密货币
+  - 钱包
+  - 链上数据
+  - 多链资产
+  - 全链查询
+  - DeFi
+  - 流动性池
+  - 代币化股票
+  - RWA
+  - 只读查询
+  - 公开账本
+trigger_words:
+  - 查钱包
+  - 钱包资产
+  - 地址持仓
+  - 全链余额
+  - 钱包市值
+  - 多链资产
+  - 全链查询
+  - LP 头寸
+  - 查一下这个地址
+  - wallet assets
+  - full chain assets
+description: >
+  输入一个公开的区块链钱包地址（EVM / BTC / Solana / Tron / TON / SUI / Cosmos 等），
+  基于区块链公开账本的只读原理，自动识别链族，统计该地址在全部支持链上的资产，
+  汇总为美元/人民币总市值。对行情源未收录的长尾代币，按 DEX 交易对链上算价
+  （V2 池储备比 / V3 池 sqrtPriceX96，可经稳定币或代币化股票多跳换算），
+  避免"未定价"导致漏算。覆盖原生币、代币、流动性池 LP 头寸、DeFi 借贷与质押凭证、
+  收益代币，以及代币化股票 / RWA 资产。支持按链与按资产类别双维度展示。
+  只读查询：不需要私钥、不签名、不发起任何交易；地址默认脱敏输出；
+  形似私钥 / 助记词 / 种子的输入一律拒收。
+data_sources:
+  - 公开区块浏览器与公共 RPC 节点（Blockscout、Blockstream、TronGrid、Tronscan、Solana 公共 RPC、BSC 官方 dataseed）
+  - 公开行情聚合器（DeFiLlama、DexScreener、open.er-api.com 汇率）
+permissions:
+  - 读取用户提供的公开钱包地址（仅做格式校验与脱敏，不含任何密钥信息）
+  - 向公开链上数据接口发起只读请求（HTTP GET / 只读 JSON-RPC eth_call）
+  - 读取 DEX 交易对储备与价格以给长尾代币定价（getReserves / slot0，链上只读调用）
+  - 出口域名在代码中静态写死；不接受调用方传入任意主机地址
+denied_actions:
+  - 不使用、不读取、不传输任何 API Key / Secret / Token / Passphrase（全部出口均为无鉴权的公开只读端点）
+  - 不读取、不接收、不存储私钥、助记词、种子短语或 Keystore 文件
+  - 不进行任何签名操作（eth_sign / personal_sign / eth_sendRawTransaction 均不涉及）
+  - 不发起任何交易、授权（approve）或合约写操作
+  - 不将凭证写入报告、日志或任何用户可见输出
+  - 不推断地址归属，不提供投资建议
+license: MIT
+icon: icon-512.png
